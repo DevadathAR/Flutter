@@ -1,17 +1,20 @@
 import 'package:book_king/const/colors.dart';
 import 'package:book_king/const/string.dart';
-import 'package:book_king/view/home.dart';
-import 'package:book_king/view/login.dart';
 import 'package:book_king/view/sign_up_confirm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SigningUp extends StatefulWidget {
+  const SigningUp({super.key});
 
   @override
+  State<SigningUp> createState() => _SigningUpState();
+}
+
+class _SigningUpState extends State<SigningUp> {
+  @override
   Widget build(BuildContext context) {
-    bool? ischeck = false;
+    bool ischeck = true;
+    bool valuecheck = false;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
@@ -82,10 +85,11 @@ class SignUp extends StatelessWidget {
                         ),
                         Row(children: [
                           Checkbox(
-                              value: false,
-                              onChanged: (newvalue) {
+                            activeColor: orenge,
+                              value: valuecheck,
+                              onChanged: (bool? value) {
                                 setState(() {
-                                  ischeck = newvalue;
+                                  valuecheck = value!;
                                 });
                               }),
                           const Text("I Agree to the terms and coditions")
@@ -100,7 +104,7 @@ class SignUp extends StatelessWidget {
                               builder: (context) => const SignupConfirm(),
                             ));
                           },
-                          color: ischeck == true? gray:blue,
+                          color: ischeck == true? blue:gray,
                           child: const Text(
                             "Sign Up",
                             style: TextStyle(
@@ -119,5 +123,4 @@ class SignUp extends StatelessWidget {
     );
   }
 
-  void setState(Null Function() param0) {}
 }

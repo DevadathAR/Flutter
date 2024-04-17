@@ -2,7 +2,10 @@ import 'package:book_king/const/colors.dart';
 import 'package:book_king/const/string.dart';
 import 'package:book_king/view/home.dart';
 import 'package:book_king/view/sign_up.dart';
+import 'package:book_king/view/signingup.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -55,11 +58,11 @@ class _LoginPageState extends State<LoginPage> {
                                   isDense: true,
                                   border: OutlineInputBorder(),
                                   prefixIcon: Icon(Icons.mail_outlined)),
-                              // fillColor: ,                ????????????????????
-                              // onChanged: (String mailId) {},
-                              // validator: (mailId) {
-                              //   return mailId!.isEmpty ? "Enter valid mail ID" : null;
-                              // },
+                              validator: (mailId) {
+                                return mailId!.isEmpty
+                                    ? "Enter valid mail ID"
+                                    : null;
+                              },
                             ),
                             SizedBox(
                               height: size.width * 0.025,
@@ -72,35 +75,87 @@ class _LoginPageState extends State<LoginPage> {
                                   hintText: hintpswd,
                                   isDense: true,
                                   border: OutlineInputBorder(),
-                                  prefixIcon: Icon(Icons.key)),
+                                  prefixIcon: Icon(Icons.password)),
+                              validator: (pswdthere) {
+                                return pswdthere!.isEmpty
+                                    ? "Enter your password"
+                                    : null;
+                              },
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: blue),
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const BookHome(),
-                                  ));
-                                },
-                                child: const Text(
-                                  "Log In",
-                                  style: TextStyle(
-                                      color: black,
-                                      fontWeight: FontWeight.normal),
-                                )),
                             const SizedBox(
                               height: 25,
                             ),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const SignUp(),
-                                  ));
-                                },
-                                child: const Text("Sign Up"))
+                            MaterialButton(
+                              minWidth: double.infinity,
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const BookHome(),
+                                ));
+                              },
+                              color: blue,
+                              child: const Text(
+                                "Log In",
+                                style: TextStyle(
+                                    color: black,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            MaterialButton(
+                              minWidth: double.infinity,
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const SigningUp(),
+                                ));
+                              },
+                              color: orenge,
+                              child: const Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                    color: black,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                GestureDetector(onTap: () {},
+                                  child: const CircleAvatar(
+                                    child: Image(
+                                        image: AssetImage("assets/image/fb.png")),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                GestureDetector(onTap: () {},
+                                  child: const CircleAvatar(
+                                    child: Image(
+                                        image: AssetImage(
+                                            "assets/image/instalogo.jpeg")),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                GestureDetector(onTap: () {},
+                                  child: const CircleAvatar(
+                                    child: Image(
+                                        image:
+                                            AssetImage("assets/image/xlogo.png")),
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       )
