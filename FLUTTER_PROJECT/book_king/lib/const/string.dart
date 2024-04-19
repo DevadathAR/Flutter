@@ -6,5 +6,5 @@ const pswd = "Password";
 const retyppswd = "Re-enter your password";
 const hintpswd = "********";
 const own = "® devadath";
-const confirmation = '''Your account is created
-    You can Log In now''';
+const confirmation = "Wlecome to booKing";
+const searchbar = "Search here";

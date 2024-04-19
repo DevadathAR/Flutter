@@ -18,7 +18,7 @@ class _SignupConfirmState extends State<SignupConfirm> {
   }
 
   void _signupMsg() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (BuildContext context) => const LoginPage(),

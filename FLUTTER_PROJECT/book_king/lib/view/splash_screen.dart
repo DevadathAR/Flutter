@@ -27,16 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  // changescreen() {
-  //   Future.delayed(const Duration(seconds: 2), () {
-  //     Get.off( const LoginPage());
-  //   });
-  // }
-
-  // void initstate(){changescreen();
-  // super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

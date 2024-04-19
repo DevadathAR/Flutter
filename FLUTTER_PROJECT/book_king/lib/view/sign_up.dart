@@ -1,7 +1,5 @@
 import 'package:book_king/const/colors.dart';
 import 'package:book_king/const/string.dart';
-import 'package:book_king/view/home.dart';
-import 'package:book_king/view/login.dart';
 import 'package:book_king/view/sign_up_confirm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

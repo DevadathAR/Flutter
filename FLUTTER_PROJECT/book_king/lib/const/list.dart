@@ -1,0 +1,1 @@
+var list_slide_image = ["assets/image/got.jpeg","assets/image/sale.jpeg","assets/image/best_selling.png","assets/image/Har_potr.jpeg",];

@@ -11,10 +11,9 @@ class SigningUp extends StatefulWidget {
 }
 
 class _SigningUpState extends State<SigningUp> {
+  bool? ischeck = false;
   @override
   Widget build(BuildContext context) {
-    bool ischeck = true;
-    bool valuecheck = false;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
@@ -85,11 +84,12 @@ class _SigningUpState extends State<SigningUp> {
                         ),
                         Row(children: [
                           Checkbox(
-                            activeColor: orenge,
-                              value: valuecheck,
-                              onChanged: (bool? value) {
+                              checkColor: black,
+                              activeColor: green,
+                              value: ischeck,
+                              onChanged: (newvalue) {
                                 setState(() {
-                                  valuecheck = value!;
+                                  ischeck = newvalue;
                                 });
                               }),
                           const Text("I Agree to the terms and coditions")
@@ -104,7 +104,7 @@ class _SigningUpState extends State<SigningUp> {
                               builder: (context) => const SignupConfirm(),
                             ));
                           },
-                          color: ischeck == true? blue:gray,
+                          color: ischeck == true ? blue : gray,
                           child: const Text(
                             "Sign Up",
                             style: TextStyle(
@@ -122,5 +122,4 @@ class _SigningUpState extends State<SigningUp> {
       ),
     );
   }
-
 }

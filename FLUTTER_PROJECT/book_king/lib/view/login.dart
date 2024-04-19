@@ -1,7 +1,6 @@
 import 'package:book_king/const/colors.dart';
 import 'package:book_king/const/string.dart';
-import 'package:book_king/view/home.dart';
-import 'package:book_king/view/sign_up.dart';
+import 'package:book_king/view/home/home.dart';
 import 'package:book_king/view/signingup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
