@@ -1,5 +1,3 @@
-import 'dart:isolate';
-
 import 'package:d_mart/consts/consts.dart';
 
 const socialmedia = [icFacebookLogo, icGoogleLogo, icTwitterLogo];
@@ -15,7 +13,10 @@ const feature_title1 = [womendrs,girlsdrs,girlwatch];
 const feature_title2 = [boysglas,mobfon,tshirt];
 
 const categories_list = [womendrs,mencloth,compu,automob,kidstoy,sports,jwellry,cellfon,furniture];
-const categories_img = [imgFc1,imgFc2,imgFc3,imgFc4,imgFc5,imgFc6,imgFc7,imgFc8,imgFc9,];
+const categories_img = [imgFc8,imgFc1,imgFc2,imgFc3,imgFc4,imgFc5,imgFc7,imgFc6,imgFc9,];
 
 const itemDetailButtonsList = [video,reviews,sellerpolicy,returnpolicy,supportpolicy];
+
+const profilebuttonlist = [orders,whishlist,msg];
+const profilebuttonIcon = [icOrder,icOrders,icMessages];
 

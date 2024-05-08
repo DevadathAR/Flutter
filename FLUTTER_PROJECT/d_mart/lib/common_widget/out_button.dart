@@ -12,8 +12,7 @@ Widget ourbutton({
         backgroundColor: color,
         padding: EdgeInsets.all(12),
       ),
-      onPressed: () {
-        onPress;
+      onPressed: () {return onPress();
       },
       child: txt!.text.color(txtcolor).fontFamily(bold).make());
 }

@@ -1,7 +1,7 @@
 import 'package:d_mart/common_widget/home_button.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/consts/list.dart';
-import 'package:d_mart/view/home_screen/comp/feature_butn.dart';
+import 'package:d_mart/view/catogery_scr/home_screen/comp/feature_butn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

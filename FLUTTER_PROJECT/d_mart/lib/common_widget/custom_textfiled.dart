@@ -1,7 +1,7 @@
 import 'package:d_mart/consts/consts.dart';
 import 'package:flutter/material.dart';
 
-Widget CustomTestFiled({String? title,String? hint,controller}) {
+Widget CustomTestFiled({String? title,String? hint,controller,isPass}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -12,6 +12,7 @@ Widget CustomTestFiled({String? title,String? hint,controller}) {
           .make(),
       5.heightBox,
       TextFormField(
+        obscureText: isPass,
         controller: controller,
         decoration:  InputDecoration(
             hintStyle: const TextStyle(color: fontGrey,fontFamily: semibold),

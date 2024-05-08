@@ -1,6 +1,9 @@
 import 'package:d_mart/common_widget/applog_wid.dart';
 import 'package:d_mart/consts/consts.dart';
-import 'package:flutter/material.dart';
+import 'package:d_mart/view/auth_scrn/login_scrn.dart';
+import 'package:d_mart/view/catogery_scr/home_screen/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,6 +13,27 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  
+  changeScreen() {
+    Future.delayed(const Duration(seconds: 3), () {
+      // Get.to(()=>LogInScrn());
+
+      auth.authStateChanges().listen((User? user) {
+        if (user == null && mounted) {
+          Get.to(() => LogInScrn());
+        } else {
+          Get.to(() => Home());
+        }
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    changeScreen();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 .size(20)
                 .white
                 .make(),
-                1.heightBox,
+            1.heightBox,
             appversion.text.gray800.make()
           ],
         ),

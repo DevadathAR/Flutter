@@ -1,15 +1,9 @@
 import 'package:d_mart/conntrollers/home_contrlrs.dart';
-import 'package:d_mart/consts/colors.dart';
 import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/consts/images.dart';
-import 'package:d_mart/consts/strings.dart';
-import 'package:d_mart/consts/styles.dart';
+import 'package:d_mart/view/catogery_scr/category_scrn.dart';
 import 'package:d_mart/view/cart_scr/cart_scrn.dart';
-import 'package:d_mart/view/category_scr/categeri_scrn.dart';
-import 'package:d_mart/view/home_screen/home_scr.dart';
+import 'package:d_mart/view/catogery_scr/home_screen/home_scr.dart';
 import 'package:d_mart/view/profilr_scr/profile_scrn.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
@@ -47,8 +41,8 @@ class Home extends StatelessWidget {
 
     var navbody = [
       HomeScrn(),
-      const CartScrn(),
       const CategoryScrn(),
+      const CartScrn(),
       const ProfileScrn()
     ];
     return Scaffold(

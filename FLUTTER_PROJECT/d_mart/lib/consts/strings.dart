@@ -1,45 +1,46 @@
-const appname = "D-Mart";
-const appversion = "Version 1.0.0";
-const credits = "@ Dev's";
-const email = "E-mail";
-const email_hint = "admin@admin.com";
-const pswd = "Password";
-const repswd = "Re-enter your password";
-const name = "Name";
-const namehint = "Enter yor name";
-const pswd_hint = "* * * * * * * *";
-const forget_pswd = "forget password";
-const login = "Log in";
-const sig_up = "Sign up";
-const createnewacc = "or,create a new account";
-const loginwith = "Log in with";
-const alrdyacc = "already have an account? ";
-
-const home = "Home",
+const appname = "D-Mart",
+    appversion = "Version 1.0.0",
+    credits = "@ Dev's",
+    email = "E-mail",
+    email_hint = "admin@admin.com",
+    pswd = "Password",
+    repswd = "Re-enter your password",
+    name = "Name",
+    namehint = "Enter yor name",
+    pswd_hint = "* * * * * * * *",
+    forget_pswd = "forget password",
+    login = "Log in",
+    logout = "Log Out",
+    loggedin = "Logged in successfully",
+    loggedout = "Logged out successfully",
+    sig_up = "Sign up",
+    createnewacc = "or,create a new account",
+    loginwith = "Log in with",
+    alrdyacc = "already have an account? ",
+    home = "Home",
     categories = "Categories",
     cart = "Cart",
-    account = "Account";
-
-const search = "Search anything",
+    account = "Account",
+    search = "Search anything",
     todaydeal = "Today's Deal",
     flashsale = "Flash s\Sale",
     topseller = "Top Seller",
     brands = "Brands",
     topcat = "Top Catogeries",
     featcat = " Featured Categories",
-    womendrs = "WomenDress",
+    womendrs = "Women Dress",
     girlwatch = "Girls watchs",
     mobfon = "Mobile Phones",
     boysglas = "Boys Glasses",
     girlsdrs = "Girls Dresses",
     featuredprod = "Featured Prodect",
-    automob = "Auto Mobile",
+    automob = "Automobile",
     kidstoy = "Kids & Toys",
     sports = "Sports",
-    jwellry = "Jwelery",
-    cellfon = "Cell Phone & Tab",
+    jwellry = "Jwellery",
+    cellfon = "Cellphone & Tab",
     furniture = "Furniture",
-    compu = "Computer & accessories",
+    compu = "Computer & Accessories",
     mencloth = "Men Clothing & Fashion",
     video = "Video",
     reviews = "Reviews",
@@ -48,3 +49,8 @@ const search = "Search anything",
     supportpolicy = "Support Policy",
     productsyoulike = "Prodect you may like",
     tshirt = "T-Shirts";
+
+
+//profile
+
+const whishlist =  "My Wish list", orders = "My Orders", msg = "Messages";
