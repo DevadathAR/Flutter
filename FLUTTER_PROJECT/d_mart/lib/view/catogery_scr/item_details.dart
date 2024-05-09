@@ -2,6 +2,7 @@ import 'package:d_mart/common_widget/out_button.dart';
 import 'package:d_mart/conntrollers/prodect_controller.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/consts/list.dart';
+import 'package:d_mart/view/chat_scrn/chat_scrn.dart';
 import 'package:get/get.dart';
 
 class ItemDetails extends StatelessWidget {
@@ -34,7 +35,17 @@ class ItemDetails extends StatelessWidget {
                   Icons.share,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  if(controller.isFav.value){
+                    controller.removeFromWishList(data.id);
+                    controller.isFav(false);
+
+                  }
+                  else{
+                    controller.addToWishList(data.id);
+                    controller.isFav(true);
+                  }
+                },
                 icon: const Icon(
                   Icons.favorite_outline,
                 )),
@@ -124,7 +135,10 @@ class ItemDetails extends StatelessWidget {
                           backgroundColor: Colors.white,
                           child:
                               Icon(Icons.message_rounded, color: darkFontGrey),
-                        ),
+                        ).onTap(() {
+                          Get.to(() => ChatScreen(),
+                          arguments: [data['p_seller'],data['vendor_id']]);
+                        }),
                       ],
                     )
                         .box

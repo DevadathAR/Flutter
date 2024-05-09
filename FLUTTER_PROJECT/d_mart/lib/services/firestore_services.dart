@@ -28,4 +28,24 @@ class FirestoreServices {
   static deleteDocument(docId) {
     return firestore.collection(cartCollection).doc(docId).delete();
   }
+
+  static allProducts() {
+    return firestore.collection(prodectsCollection).snapshots();
+  }
+
+  static getFeaturedProducts() {
+    return firestore
+        .collection(prodectsCollection)
+        .where('is_featured', isEqualTo: true)
+        .get();
+  }
+
+  static getChatMessages(docId) {
+    return firestore
+        .collection(chatCollection)
+        .doc(docId)
+        .collection(messageCollection)
+        .orderBy('created_on', descending: false)
+        .snapshots();
+  }
 }

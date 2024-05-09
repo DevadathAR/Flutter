@@ -1,4 +1,4 @@
-import 'package:d_mart/common_widget/exit_dialod.dart';
+import 'package:d_mart/common_widget/exit_dialog.dart';
 import 'package:d_mart/conntrollers/home_contrlrs.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/view/catogery_scr/category_scrn.dart';

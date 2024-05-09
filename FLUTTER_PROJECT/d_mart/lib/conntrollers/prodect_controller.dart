@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/models/category_model.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,8 @@ class ProdectController extends GetxController {
   var colorIndex = 0.obs;
   var totalPrice = 0.obs;
   var subcat = [];
+
+  var isFav = false.obs;
 
   getSubCategories(title) async {
     subcat.clear();
@@ -24,7 +27,7 @@ class ProdectController extends GetxController {
   }
 
   changeColorIndex(index) {
-    colorIndex = index;
+    colorIndex.value = index;
   }
 
   increaseQuantity(totalQuantity){
@@ -61,6 +64,22 @@ class ProdectController extends GetxController {
     quantity.value = 0;
     colorIndex.value = 0;
 
+  }
+
+  addToWishList(docId)async{
+    await firestore.collection(prodectsCollection).doc(docId).set({
+      'p_wishlist':FieldValue.arrayUnion([
+        currentUser!.uid
+      ])
+    },SetOptions(merge: true));
+  }
+
+  removeFromWishList(docId)async{
+    await firestore.collection(prodectsCollection).doc(docId).set({
+      'p_wishlist':FieldValue.arrayRemove([
+        currentUser!.uid
+      ])
+    },SetOptions(merge: true));
   }
 
 }
