@@ -9,4 +9,5 @@ User? currentUser = auth.currentUser;
 
 const usersCollection = "users";
 const prodectsCollection = "prodects";
+const cartCollection = "cart";
 

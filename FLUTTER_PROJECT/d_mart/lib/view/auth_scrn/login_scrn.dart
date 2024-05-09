@@ -6,7 +6,7 @@ import 'package:d_mart/common_widget/custom_textfiled.dart';
 import 'package:d_mart/common_widget/out_button.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/consts/list.dart';
-import 'package:d_mart/view/catogery_scr/home_screen/home.dart';
+import 'package:d_mart/view/home_screen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
