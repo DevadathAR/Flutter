@@ -24,12 +24,14 @@ class ShippingDetails extends StatelessWidget {
         height: 60,
         child: ourbutton(
             onPress: () {
-              if (controller.addressConntroller.text.length > 10 &&
+              if (controller.addressConntroller.text.length > 10
+               &&
                   controller.phoneConntroller.text.length > 5 &&
                   controller.postalCodeConntroller.text.length > 2 &&
-                  controller.cityConntroller.text.length > 1) {
+                  controller.cityConntroller.text.length > 1
+                  ) {
                 Get.to(() => PaymentMethods());
-              }
+              }else
               {
                 VxToast.show(context, msg: "Please complete this form");
               }

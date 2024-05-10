@@ -4,18 +4,20 @@ import 'package:d_mart/conntrollers/profile_controler.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/consts/list.dart';
 import 'package:d_mart/view/auth_scrn/login_scrn.dart';
+import 'package:d_mart/view/chat_scrn/messaging_scrn.dart';
+import 'package:d_mart/view/order_scrn/orders_scrn.dart';
 import 'package:d_mart/view/profilr_scr/comp/details_card.dart';
 import 'package:d_mart/view/profilr_scr/comp/editprofile_screen.dart';
+import 'package:d_mart/view/wishList_scrn/wishList_scrn.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfileScrn extends StatelessWidget {
-  const ProfileScrn({Key? key}):super(key: key);
+  const ProfileScrn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-      var controller = Get.put(ProfileController());
+    var controller = Get.put(ProfileController());
 
     return bgWidget(
         child: Scaffold(
@@ -23,9 +25,8 @@ class ProfileScrn extends StatelessWidget {
           child: Container(
         child: Column(
           children: [
-
             //edit profile button
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(8.0),
               child: const Align(
                   alignment: Alignment.topRight,
@@ -33,8 +34,8 @@ class ProfileScrn extends StatelessWidget {
                     Icons.edit,
                     color: whiteColor,
                   )).onTap(() {
-                    Get.to(()=> const EditProfileScreen());
-                  }),
+                Get.to(() => const EditProfileScreen());
+              }),
             ),
 
             //userdetaiils
@@ -61,9 +62,9 @@ class ProfileScrn extends StatelessWidget {
                   OutlinedButton(
                       style: OutlinedButton.styleFrom(
                           side: const BorderSide(color: whiteColor)),
-                      onPressed: () async{
+                      onPressed: () async {
                         await Get.put(AuthController().signoutMethood(context));
-                        Get.offAll(()=>const LogInScrn());
+                        Get.offAll(() => const LogInScrn());
                       },
                       child: logout.text.fontFamily(semibold).white.make())
                 ],
@@ -94,16 +95,48 @@ class ProfileScrn extends StatelessWidget {
             ListView.separated(
               shrinkWrap: true,
               separatorBuilder: (context, index) {
-                return const Divider(color: lightGrey,);
+                return const Divider(
+                  color: lightGrey,
+                );
               },
               itemCount: profilebuttonlist.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  leading: Image.asset(profilebuttonIcon[index],scale: 2,),
-                  title: "${profilebuttonlist[index]}".text.fontFamily(bold).color(darkFontGrey).make(),
+                  onTap: () {
+                    switch (index) {
+                      case 0:
+                        Get.to(() => const OrdersScreen());
+                        break;
+                      case 1:
+                        Get.to(() => const WishListScreen());
+                        break;
+                      case 2:
+                        Get.to(() => const MessagesScreen());
+                        break;
+                    }
+                  },
+                  leading: Image.asset(
+                    profilebuttonIcon[index],
+                    scale: 2,
+                  ),
+                  title: "${profilebuttonlist[index]}"
+                      .text
+                      .fontFamily(bold)
+                      .color(darkFontGrey)
+                      .make(),
                 );
               },
-            ).box.white.rounded.shadowSm.margin(const EdgeInsets.all(12)).padding(const EdgeInsets.symmetric(horizontal: 16)).make().box.color(redColor).make()
+            )
+                .box
+                .white
+                .rounded
+                .shadowSm
+                .margin(const EdgeInsets.all(12))
+                .padding(const EdgeInsets.symmetric(horizontal: 16))
+                .make()
+                .box
+                .color(redColor)
+                .make()
           ],
         ),
       )),

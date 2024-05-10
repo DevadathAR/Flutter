@@ -48,4 +48,22 @@ class FirestoreServices {
         .orderBy('created_on', descending: false)
         .snapshots();
   }
+
+  static getAllOrders() {
+    return firestore
+        .collection(ordersCollection)
+        .where('order_by', isEqualTo: currentUser!.uid)
+        .snapshots();
+  }
+
+  static getWishList() {
+    return firestore
+        .collection(prodectsCollection)
+        .where('p_wishlist', arrayContains: currentUser!.uid)
+        .snapshots();
+  }
+
+  static getAllMessages() {
+    return firestore.collection(chatCollection).where('from_id',isEqualTo: currentUser!.uid).snapshots();
+  }
 }

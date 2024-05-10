@@ -343,6 +343,7 @@ class ItemDetails extends StatelessWidget {
                       color: data['p_colors'][controller.colorIndex.value],
                       context: context,
                       img: data['p_imgs'][0],
+                      vendorID: data['vendor_id'],
                       qty: controller.quantity.value,
                       sellername: data['p_seller'],
                       title: data['p_name'],
