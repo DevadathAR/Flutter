@@ -99,7 +99,9 @@ class CategoryDetails extends StatelessWidget {
                           .outerShadowSm
                           .margin(const EdgeInsets.symmetric(horizontal: 4))
                           .padding(const EdgeInsets.all(16))
-                          .make().onTap(() {Get.to(()=>ItemDetails(title: "${data[index]['p_name']}",data: data[index],));});
+                          .make().onTap(() {
+                            controller.checkIfFav(data[index]['p_name']);
+                            Get.to(()=>ItemDetails(title: "${data[index]['p_name']}",data: data[index],));});
                       
                     }))
           ],

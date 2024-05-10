@@ -53,4 +53,6 @@ const appname = "D-Mart",
 
 //profile
 
-const whishlist =  "My Wish list", orders = "My Orders", msg = "Messages";
+const whishlist =  "My Wish list", orders = "My Orders", msg = "Messages",oldpass = "Old password",newpass = "New password";
+
+const paypal = "Paypal",stripe = "Stripe", cod = "Cash On Delivery";

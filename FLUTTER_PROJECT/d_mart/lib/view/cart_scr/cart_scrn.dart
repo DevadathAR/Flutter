@@ -5,6 +5,7 @@ import 'package:d_mart/common_widget/out_button.dart';
 import 'package:d_mart/conntrollers/cart_controller.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/services/firestore_services.dart';
+import 'package:d_mart/view/cart_scr/shippiing_scrn.dart';
 import 'package:get/get.dart';
 
 class CartScrn extends StatelessWidget {
@@ -15,6 +16,15 @@ class CartScrn extends StatelessWidget {
     var controller = Get.put(CartController());
     return Scaffold(
         backgroundColor: whiteColor,
+        bottomNavigationBar: SizedBox(
+          height: 60,
+          child: ourbutton(
+                                color: redColor,
+                                onPress: () {Get.to(()=>ShippingDetails());},
+                                txtcolor: whiteColor,
+                                txt: "Proceed to shippping"),
+        ),
+
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: "Shopiing cart"
@@ -38,6 +48,7 @@ class CartScrn extends StatelessWidget {
               } else {
                 var data = snapshot.data!.docs;
                 controller.calculate(data);
+                controller.productSnapshot = data;
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -87,13 +98,13 @@ class CartScrn extends StatelessWidget {
                           .roundedSM
                           .make(),
                       10.heightBox,
-                      SizedBox(
-                          width: context.screenWidth - 60,
-                          child: ourbutton(
-                              color: redColor,
-                              onPress: () {},
-                              txtcolor: whiteColor,
-                              txt: "Proceed to shippping"))
+                      // SizedBox(
+                      //     width: context.screenWidth - 60,
+                      //     child: ourbutton(
+                      //         color: redColor,
+                      //         onPress: () {},
+                      //         txtcolor: whiteColor,
+                      //         txt: "Proceed to shippping"))
                     ],
                   ),
                 );

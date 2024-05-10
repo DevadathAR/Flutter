@@ -4,6 +4,7 @@ import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/consts/list.dart';
 import 'package:d_mart/view/chat_scrn/chat_scrn.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ItemDetails extends StatelessWidget {
   final String? title;
@@ -34,21 +35,23 @@ class ItemDetails extends StatelessWidget {
                 icon: const Icon(
                   Icons.share,
                 )),
-            IconButton(
-                onPressed: () {
-                  if(controller.isFav.value){
-                    controller.removeFromWishList(data.id);
-                    controller.isFav(false);
-
-                  }
-                  else{
-                    controller.addToWishList(data.id);
-                    controller.isFav(true);
-                  }
-                },
-                icon: const Icon(
-                  Icons.favorite_outline,
-                )),
+            Obx(()=> IconButton(
+                  onPressed: () {
+                    if(controller.isFav.value){
+                      controller.removeFromWishList(data.id,context);
+                      controller.isFav(false);
+              
+                    }
+                    else{
+                      controller.addToWishList(data.id,context);
+                      controller.isFav(true);
+                    }
+                  },
+                  icon:  Icon(
+                    Icons.favorite,
+                    color: controller.isFav.value? redColor:darkFontGrey,
+                  )),
+            ),
           ],
         ),
         body: Column(
