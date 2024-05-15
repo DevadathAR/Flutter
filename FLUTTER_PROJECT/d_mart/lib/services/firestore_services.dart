@@ -1,5 +1,4 @@
 import 'package:d_mart/consts/consts.dart';
-import 'package:flutter/foundation.dart';
 
 class FirestoreServices {
   //get users data
@@ -29,17 +28,9 @@ class FirestoreServices {
     return firestore.collection(cartCollection).doc(docId).delete();
   }
 
-  static allProducts() {
-    return firestore.collection(prodectsCollection).snapshots();
-  }
+  
 
-  static getFeaturedProducts() {
-    return firestore
-        .collection(prodectsCollection)
-        .where('is_featured', isEqualTo: true)
-        .get();
-  }
-
+ 
   static getChatMessages(docId) {
     return firestore
         .collection(chatCollection)
@@ -64,6 +55,39 @@ class FirestoreServices {
   }
 
   static getAllMessages() {
-    return firestore.collection(chatCollection).where('from_id',isEqualTo: currentUser!.uid).snapshots();
+    return firestore.collection(chatCollection).where('fromId',isEqualTo: currentUser!.uid).snapshots();
   }
+  static getCounts()async{
+    var res =await Future.wait([
+      firestore.collection(cartCollection).where('added_by',isEqualTo: currentUser!.uid).get().then((value){
+        return value.docs.length;
+      }),
+      firestore.collection(prodectsCollection).where('p_wishlist',arrayContains: currentUser!.uid).get().then((value){
+        return value.docs.length;
+      }),
+      firestore.collection(ordersCollection).where('order_by',isEqualTo: currentUser!.uid).get().then((value){
+        return value.docs.length;
+      }),
+    ]);
+    return res ;
+  }
+  static allProducts() {
+    return firestore.collection(prodectsCollection).snapshots();
+  }
+
+
+   static getFeaturedProducts() {
+    return firestore
+        .collection(prodectsCollection)
+        .where('is_featured', isEqualTo: true)
+        .get();
+  }
+  static searchProduct(title){
+    return firestore.collection(prodectsCollection).get();
+  }
+
+  static getSubcategoryProducts(title){
+    return firestore.collection(prodectsCollection).where('p_subcategory',isEqualTo: title).snapshots();
+  }
+
 }

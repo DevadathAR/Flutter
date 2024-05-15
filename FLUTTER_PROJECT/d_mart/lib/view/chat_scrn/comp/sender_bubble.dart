@@ -11,13 +11,18 @@ Widget senderBubble(DocumentSnapshot data) {
         data['uid'] == currentUser!.uid ? TextDirection.rtl : TextDirection.ltr,
     child: Container(
       margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.all( 8),
-      decoration:  BoxDecoration(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-            bottomLeft: Radius.circular(20)),
-        color: data['uid'] == currentUser!.uid ? redColor : darkFontGrey,
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        borderRadius: data['uid'] == currentUser!.uid
+            ? const BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+                bottomLeft: Radius.circular(20))
+            : const BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+                bottomRight: const Radius.circular(20)),
+        color: data['uid'] == currentUser!.uid ? redColor : blue,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

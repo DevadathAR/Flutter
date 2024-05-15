@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:d_mart/common_widget/out_button.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:flutter/services.dart';

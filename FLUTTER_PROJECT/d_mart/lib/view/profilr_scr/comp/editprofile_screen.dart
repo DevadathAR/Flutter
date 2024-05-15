@@ -95,7 +95,7 @@ class EditProfileScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               //if data image and controller path is empty
-              data['imageUrl'] == '' && controller.profileImagePath.isEmpty
+              data[0]['imageurl'] == '' && controller.profileImagePath.isEmpty
                   ? Image.asset(imgProfile2, width: 80, fit: BoxFit.cover)
                       .box
                       .roundedFull
@@ -103,9 +103,9 @@ class EditProfileScreen extends StatelessWidget {
                       .make()
           
                   //if data is not empty but controller path is empty
-                  : data['imageUrl'] != '' && controller.profileImagePath.isEmpty
+                  : data[0]['imageurl'] != '' && controller.profileImagePath.isEmpty
                       ? Image.network(
-                          data['imageUrl'],
+                          data[0]['imageurl'],
                           width: 100,
                           fit: BoxFit.cover,
                         ).box.roundedFull.clip(Clip.antiAlias).make()
@@ -159,7 +159,7 @@ class EditProfileScreen extends StatelessWidget {
                             if (controller.profileImagePath.value.isNotEmpty) {
                               await controller.uploadProfileImage();
                             } else {
-                              controller.profileImageLink = data['imageUrl'];
+                              controller.profileImageLink = data[0]['imageurl'];
                             }
           
                             //if old pass matches

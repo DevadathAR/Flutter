@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:d_mart/common_widget/loading_indicator.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/services/firestore_services.dart';
+import 'package:d_mart/view/chat_scrn/chat_scrn.dart';
+import 'package:get/get.dart';
 
 class MessagesScreen extends StatelessWidget {
   const MessagesScreen({super.key});
@@ -11,18 +13,50 @@ class MessagesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        title: "MyMessages".text.color(darkFontGrey).fontFamily(semibold).make(),
+        title:
+            "MyMessages".text.color(darkFontGrey).fontFamily(semibold).make(),
       ),
-      body: StreamBuilder(stream: FirestoreServices.getAllMessages(), builder: (BuildContext context,AsyncSnapshot<QuerySnapshot>snapshot){
-        if(!snapshot.hasData){
-          return Center(child: loadingIndicator(),);
-        }
-        else if(snapshot.data!.docs.isEmpty){
-          return "No messages yet".text.color(darkFontGrey).makeCentered();
-        }else{
-          return Container();
-        }
-      }),
+      body: StreamBuilder(
+          stream: FirestoreServices.getAllMessages(),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: loadingIndicator(),
+              );
+            } else if (snapshot.data!.docs.isEmpty) {
+              return "No messages yet".text.color(darkFontGrey).makeCentered();
+            } else {
+              var data = snapshot.data!.docs;
+              return Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Expanded(child: ListView.builder(
+                          itemBuilder: (BuildContext context, int index) {
+                        return Card(
+                          child: ListTile(
+                            onTap: () {
+                              Get.to(()=>ChatScreen(),arguments: [data[index]['friend_name'],data[index]['toId'],]);
+                            },
+                            leading: CircleAvatar(backgroundColor: redColor, child: Icon(Icons.person,color: 
+                            whiteColor,),),
+                            
+                              title: "${data[index]['friend_name']}"
+                                  .text
+                                  .fontFamily(semibold)
+                                  .color(darkFontGrey)
+                                  .make(),
+                                  subtitle: "${data[index]['last_msg']}".text.make(),),
+                        );
+                      }))
+                    ],
+                  ),
+                ),
+              );
+            }
+          }),
     );
   }
 }

@@ -1,7 +1,8 @@
 import 'package:d_mart/consts/consts.dart';
-import 'package:flutter/material.dart';
+import 'package:d_mart/view/catogery_scr/category_details.dart';
+import 'package:get/get.dart';
 
-Widget featureButton({String ? title,icon}) {
+Widget featureButton({String? title, icon}) {
   return Row(children: [
     Image.asset(
       icon,
@@ -14,9 +15,14 @@ Widget featureButton({String ? title,icon}) {
       .box
       .width(200)
       .white
-      .padding(EdgeInsets.all(14))
+      .padding(const EdgeInsets.all(14))
       .margin(const EdgeInsets.symmetric(horizontal: 4))
       .roundedSM
       .outerShadowSm
-      .make();
+      .make()
+      .onTap(() {
+    Get.to(() => CategoryDetails(
+          title: title,
+        ));
+  });
 }

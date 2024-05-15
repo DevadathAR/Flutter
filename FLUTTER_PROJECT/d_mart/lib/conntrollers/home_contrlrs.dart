@@ -11,6 +11,8 @@ class HomeCntrlr extends GetxController {
   }
   var currentNavIndex = 0.obs;
   var username = '';
+  var featureList = [];
+  var searchController = TextEditingController();
 
   getUsernaem() async {
     var n = await firestore

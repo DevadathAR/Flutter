@@ -4,7 +4,6 @@ import 'package:d_mart/conntrollers/cart_controller.dart';
 import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/consts/list.dart';
 import 'package:d_mart/view/home_screen/home.dart';
-import 'package:d_mart/view/home_screen/home_scr.dart';
 import 'package:get/get.dart';
 
 class PaymentMethods extends StatelessWidget {
