@@ -34,6 +34,7 @@ class MessagesScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Expanded(child: ListView.builder(
+                        itemCount: data.length,
                           itemBuilder: (BuildContext context, int index) {
                         return Card(
                           child: ListTile(

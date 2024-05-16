@@ -38,30 +38,32 @@ class SearchScrn extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: GridView(
+                
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    
                       crossAxisCount: 2,
                       mainAxisExtent: 300,
                       mainAxisSpacing: 8,
                       crossAxisSpacing: 8),
-                  children: data
+                  children: filtered
                       .mapIndexed((currentValue, index) => Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.network(
-                                data[index]['p_imgs'][0],
+                                filtered[index]['p_imgs'][0],
                                 width: 200,
                                 height: 200,
                                 fit: BoxFit.cover,
                               ),
                               const Spacer(),
                               10.heightBox,
-                              "${data[index]['p_name']}"
+                              "${filtered[index]['p_name']}"
                                   .text
                                   .color(darkFontGrey)
                                   .fontFamily(semibold)
                                   .make(),
                               10.heightBox,
-                              "${data[index]['p_price']}"
+                              "${filtered[index]['p_price']}"
                                   .text
                                   .color(redColor)
                                   .fontFamily(bold)
@@ -78,8 +80,8 @@ class SearchScrn extends StatelessWidget {
                               .make()
                               .onTap(() {
                             Get.to(() => ItemDetails(
-                                  title: "${data[index]['p_name']}",
-                                  data: data[index],
+                                  title: "${filtered[index]['p_name']}",
+                                  data: filtered[index],
                                 ));
                           }))
                       .toList()),
