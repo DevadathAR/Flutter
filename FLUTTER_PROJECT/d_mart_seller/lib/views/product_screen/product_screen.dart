@@ -1,5 +1,8 @@
+import 'package:d_mart_seller/views/product_screen/add_product.dart';
+import 'package:d_mart_seller/views/product_screen/product_details.dart';
 import 'package:d_mart_seller/views/widgets/appbar_widget.dart';
 import 'package:d_mart_seller/views/widgets/normal_text.dart';
+import 'package:get/get.dart';
 
 import '../../const/const.dart';
 
@@ -10,7 +13,9 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => AddProduct());
+          },
           backgroundColor: flotingcolor,
           child: const Icon(Icons.add),
         ),
@@ -23,7 +28,9 @@ class ProductScreen extends StatelessWidget {
               children: List.generate(
                   20,
                   (index) => ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(() => ProductDetails());
+                        },
                         leading: Image.asset(
                           imgProduct,
                           width: 100,
@@ -35,13 +42,13 @@ class ProductScreen extends StatelessWidget {
                         subtitle: normalText(
                             text: "₹ 40.0", color: darkGrey, size: 12.0),
                         trailing: VxPopupMenu(
-                          arrowSize: 0.0,
+                            arrowSize: 0.0,
                             menuBuilder: () => Column(
                                   children: List.generate(
                                       popupMenuIcons.length,
                                       (index) => Padding(
-                                        padding: const EdgeInsets.all(12.0),
-                                        child: Row(
+                                            padding: const EdgeInsets.all(12.0),
+                                            child: Row(
                                               children: [
                                                 Icon(popupMenuIcons[index]),
                                                 10.widthBox,
@@ -50,7 +57,7 @@ class ProductScreen extends StatelessWidget {
                                                     color: darkGrey)
                                               ],
                                             ).onTap(() {}),
-                                      )),
+                                          )),
                                 ).box.roundedSM.white.width(200).make(),
                             clickType: VxClickType.singleClick,
                             child: const Icon(Icons.more_vert_outlined)),

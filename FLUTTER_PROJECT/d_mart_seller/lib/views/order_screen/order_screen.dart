@@ -1,5 +1,7 @@
+import 'package:d_mart_seller/views/order_screen/order_details.dart';
 import 'package:d_mart_seller/views/widgets/appbar_widget.dart';
 import 'package:d_mart_seller/views/widgets/normal_text.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart' as intl;
 
 import '../../const/const.dart';
@@ -19,7 +21,7 @@ class OrderScreen extends StatelessWidget {
             children: List.generate(
                 15,
                 (index) => ListTile(
-                      onTap: () {},
+                      onTap: () {Get.to(()=>OrderDetails());},
                       tileColor: textfieldGrey,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),

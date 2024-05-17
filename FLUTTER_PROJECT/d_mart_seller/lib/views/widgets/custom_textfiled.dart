@@ -1,8 +1,9 @@
 import 'package:d_mart_seller/const/const.dart';
 import 'package:d_mart_seller/views/widgets/normal_text.dart';
 
-Widget customTextFiled({label,hint,controller}) {
+Widget customTextFiled({label,hint,controller,isDesc = false}) {
   return TextFormField(
+    maxLines:  isDesc? 4:1,
     decoration: InputDecoration(
       isDense: true,
 
