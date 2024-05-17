@@ -1,10 +1,7 @@
-import 'package:d_mart_seller/views/order_screen/order_details.dart';
-import 'package:d_mart_seller/views/widgets/appbar_widget.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart' as intl;
+// ignore_for_file: depend_on_referenced_packages
 
-import '../../const/const.dart';
+import 'package:d_mart_seller/const/const.dart';
+import 'package:intl/intl.dart' as intl;
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});

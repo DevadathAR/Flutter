@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:d_mart_seller/const/const.dart';
 
 class HomeController extends GetxController{
   var navIndex = 0.obs;

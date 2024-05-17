@@ -1,9 +1,4 @@
-import 'package:d_mart_seller/const/colors.dart';
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/const/strings.dart';
-import 'package:d_mart_seller/views/widgets/custom_textfiled.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:flutter/material.dart';
 
 class ShopSetting extends StatelessWidget {
   const ShopSetting({super.key});

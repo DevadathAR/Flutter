@@ -1,10 +1,4 @@
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/views/order_screen/comp/order_place.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:d_mart_seller/views/widgets/our_button.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart' as intl;
 
 class OrderDetails extends StatelessWidget {
   const OrderDetails({super.key});

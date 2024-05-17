@@ -1,6 +1,4 @@
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/views/widgets/custom_textfiled.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});

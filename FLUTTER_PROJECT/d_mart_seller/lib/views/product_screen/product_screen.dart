@@ -1,10 +1,4 @@
-import 'package:d_mart_seller/views/product_screen/add_product.dart';
-import 'package:d_mart_seller/views/product_screen/product_details.dart';
-import 'package:d_mart_seller/views/widgets/appbar_widget.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:get/get.dart';
-
-import '../../const/const.dart';
+import 'package:d_mart_seller/const/const.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -39,8 +33,14 @@ class ProductScreen extends StatelessWidget {
                         ),
                         title: boldText(
                             text: "Product title", color: fontGrey, size: 14.0),
-                        subtitle: normalText(
-                            text: "₹ 40.0", color: darkGrey, size: 12.0),
+                        subtitle: Row(
+                          children: [
+                            normalText(
+                                text: "₹ 40.0", color: darkGrey, size: 12.0),
+                                10.widthBox,
+                                boldText(text: "Featured",color: green)
+                          ],
+                        ),
                         trailing: VxPopupMenu(
                             arrowSize: 0.0,
                             menuBuilder: () => Column(

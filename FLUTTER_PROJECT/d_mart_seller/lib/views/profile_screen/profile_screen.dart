@@ -1,10 +1,4 @@
-import 'package:d_mart_seller/views/messages_screen/messages_screen.dart';
-import 'package:d_mart_seller/views/profile_screen/edit_profile_screen.dart';
-import 'package:d_mart_seller/views/shop_screen/shop_setting_screen.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:get/get.dart';
-
-import '../../const/const.dart';
+import 'package:d_mart_seller/const/const.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

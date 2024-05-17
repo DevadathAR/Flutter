@@ -1,8 +1,4 @@
-import 'package:d_mart_seller/views/widgets/appbar_widget.dart';
-import 'package:d_mart_seller/views/widgets/dashboard_button.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-
-import '../../const/const.dart';
+import 'package:d_mart_seller/const/const.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

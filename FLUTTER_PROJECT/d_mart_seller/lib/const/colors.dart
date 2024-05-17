@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:d_mart_seller/const/const.dart';
 
 const purpleColor = Color.fromRGBO(46, 41, 78, 1);
 const white = Color.fromRGBO(255, 255, 255, 1);
@@ -9,4 +9,4 @@ const textfieldGrey = Color.fromRGBO(209, 209, 209, 1);
 const golden = Color.fromRGBO(248, 181, 91, 1);
 const red = Color.fromRGBO(255, 115, 115, 1.0);
 const green = Color.fromRGBO(52, 168, 83, 1.0);
-const flotingcolor = Color.fromRGBO(95, 95, 95, 0.525);
+const flotingcolor = Color.fromRGBO(128, 101, 216, 1);

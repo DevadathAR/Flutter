@@ -1,5 +1,4 @@
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
 
 Widget ourButton({title, color = purpleColor, onPress}) {
   return ElevatedButton(

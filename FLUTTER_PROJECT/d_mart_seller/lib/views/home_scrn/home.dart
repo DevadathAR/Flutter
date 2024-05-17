@@ -1,10 +1,4 @@
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/controllers/home_controller.dart';
-import 'package:d_mart_seller/views/home_scrn/Home_Screeen.dart';
-import 'package:d_mart_seller/views/order_screen/order_screen.dart';
-import 'package:d_mart_seller/views/product_screen/product_screen.dart';
-import 'package:d_mart_seller/views/profile_screen/profile_screen.dart';
-import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

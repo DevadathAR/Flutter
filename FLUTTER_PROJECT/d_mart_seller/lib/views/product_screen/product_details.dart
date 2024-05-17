@@ -1,7 +1,4 @@
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key});
@@ -23,7 +20,7 @@ class ProductDetails extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,6 +47,14 @@ class ProductDetails extends StatelessWidget {
                         text: "Product title", color: fontGrey, size: 16.0),
 
                     10.heightBox,
+                    Row(
+                      children: [
+                        boldText(text: "Category", color: fontGrey, size: 16.0),
+                        10.widthBox,
+                        normalText(
+                            text: "Subcategory", color: fontGrey, size: 16.0)
+                      ],
+                    ),10.heightBox,
 
                     //rating
                     VxRating(
@@ -72,24 +77,23 @@ class ProductDetails extends StatelessWidget {
                         Row(
                           children: [
                             SizedBox(
-                              width: 100,
-                              child: boldText(text: "Color",color: fontGrey)
-                            ),
+                                width: 100,
+                                child:
+                                    boldText(text: "Color", color: fontGrey)),
                             Row(
                               children: List.generate(
                                 3,
-                                (index) => 
-                                    VxBox()
-                                        .size(40, 40)
-                                        .roundedFull
-                                        // .color(red.withOpacity(.99))
-                                        .color(Vx.randomColor)
-                                        .margin(const EdgeInsets.symmetric(
-                                            horizontal: 4))
-                                        .make()
-                                        .onTap(() {
-                                      // controller.changeColorIndex(index);
-                                    }),
+                                (index) => VxBox()
+                                    .size(40, 40)
+                                    .roundedFull
+                                    // .color(red.withOpacity(.99))
+                                    .color(Vx.randomColor)
+                                    .margin(const EdgeInsets.symmetric(
+                                        horizontal: 4))
+                                    .make()
+                                    .onTap(() {
+                                  // controller.changeColorIndex(index);
+                                }),
                               ),
                             ),
                           ],
@@ -100,20 +104,25 @@ class ProductDetails extends StatelessWidget {
                         Row(
                           children: [
                             SizedBox(
-                              width: 100,
-                              child:boldText(text: "Quantity",color: fontGrey)
-                            ),
-                            normalText(text: "20 items",color: fontGrey)
+                                width: 100,
+                                child: boldText(
+                                    text: "Quantity", color: fontGrey)),
+                            normalText(text: "20 items", color: fontGrey)
                           ],
                         )
-
                       ],
-                    ).box.padding(const EdgeInsets.all(8)).white.shadowSm.make(),
-                    Divider(),
+                    )
+                        .box
+                        .padding(const EdgeInsets.all(8))
+                        .white
+                        .shadowSm
+                        .make(),
+                    const Divider(),
                     10.heightBox,
-                    boldText(text: "Descrption",color: fontGrey),
+                    boldText(text: "Descrption", color: fontGrey),
                     10.heightBox,
-                    normalText(text: "Description of this item",color: fontGrey)
+                    normalText(
+                        text: "Description of this item", color: fontGrey)
                   ],
                 ),
               )

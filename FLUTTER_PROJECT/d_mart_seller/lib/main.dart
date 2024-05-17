@@ -1,11 +1,7 @@
 import 'package:d_mart_seller/const/const.dart';
 import 'package:d_mart_seller/firebase_options.dart';
-import 'package:d_mart_seller/views/auth_screen/login_screen.dart';
-import 'package:d_mart_seller/views/home_scrn/home.dart';
-import 'package:d_mart_seller/views/profile_screen/edit_profile_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

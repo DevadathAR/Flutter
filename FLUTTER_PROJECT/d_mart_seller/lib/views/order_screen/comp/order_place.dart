@@ -1,5 +1,4 @@
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
 
 Widget orderPlaceDetails({title1, title2, d1, d2}) {
   return Padding(

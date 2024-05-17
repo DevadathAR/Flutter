@@ -1,9 +1,4 @@
-import 'package:d_mart_seller/const/colors.dart';
-import 'package:d_mart_seller/const/strings.dart';
-import 'package:d_mart_seller/views/messages_screen/chat_screen.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:d_mart_seller/const/const.dart';
 
 class MessagesScreen extends StatelessWidget {
   const MessagesScreen({super.key});

@@ -1,11 +1,4 @@
-import 'package:d_mart_seller/const/colors.dart';
 import 'package:d_mart_seller/const/const.dart';
-import 'package:d_mart_seller/views/home_scrn/home.dart';
-import 'package:d_mart_seller/views/widgets/normal_text.dart';
-import 'package:d_mart_seller/views/widgets/our_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 
 class LogInnScreen extends StatelessWidget {
   const LogInnScreen({super.key});
