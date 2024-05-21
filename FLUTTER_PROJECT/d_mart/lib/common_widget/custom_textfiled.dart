@@ -13,8 +13,10 @@ Widget CustomTestFiled({String? title,String? hint,controller,isPass}) {
       5.heightBox,
       TextFormField(
         obscureText: isPass,
+        
         controller: controller,
         decoration:  InputDecoration(
+          
             hintStyle: const TextStyle(color: fontGrey,fontFamily: semibold),
             fillColor: lightGrey,
             border: InputBorder.none,

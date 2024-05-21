@@ -2,6 +2,8 @@ import 'package:d_mart_seller/const/const.dart';
 
 Widget customTextFiled({label,hint,controller,isDesc = false}) {
   return TextFormField(
+    style: TextStyle(color: white),
+    controller: controller,
     maxLines:  isDesc? 4:1,
     decoration: InputDecoration(
       isDense: true,

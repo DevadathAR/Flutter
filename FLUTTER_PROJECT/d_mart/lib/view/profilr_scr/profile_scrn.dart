@@ -34,9 +34,9 @@ class ProfileScrn extends StatelessWidget {
                       ),
                     );
                   } else {
-                    var data = snapshot.data!.docs;
+                    var datas = snapshot.data!.docs[0];
                     // ignore: avoid_print
-                    // print("Testttt${data}");
+                    print("Testttt${datas['name']}");
 
                     return SafeArea(
                         child: Container(
@@ -51,8 +51,9 @@ class ProfileScrn extends StatelessWidget {
                                   Icons.edit,
                                   color: whiteColor,
                                 )).onTap(() {
+                                  controller.nameController.text = datas['name'];
                               Get.to(() => EditProfileScreen(
-                                    data: data,
+                                    data: datas,
                                   ));
                             }),
                           ),
@@ -105,49 +106,30 @@ class ProfileScrn extends StatelessWidget {
                               future: FirestoreServices.getCounts(),
                               builder: (BuildContext context,
                                   AsyncSnapshot snapshot) {
-                                    if(!snapshot.hasData){
-                                      return Center(child: loadingIndicator());
-                                    }
-                                    else{
-                                      var countData = snapshot.data;
-                                      return  Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    detalsCard(
-                                        count: countData[0].toString(),
-                                        title: "In your Crat",
-                                        width: context.screenWidth / 3.5),
-                                    detalsCard(
-                                        count:countData[1].toString(),
-                                        title: "in your Wish list",
-                                        width: context.screenWidth / 3.5),
-                                    detalsCard(
-                                        count: countData[2].toString(),
-                                        title: "Your orders",
-                                        width: context.screenWidth / 3.5),
-                                  ],
-                                );}
-                                
+                                if (!snapshot.hasData) {
+                                  return Center(child: loadingIndicator());
+                                } else {
+                                  var countData = snapshot.data;
+                                  return Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      detalsCard(
+                                          count: countData[0].toString(),
+                                          title: "In your Crat",
+                                          width: context.screenWidth / 3.5),
+                                      detalsCard(
+                                          count: countData[1].toString(),
+                                          title: "in your Wish list",
+                                          width: context.screenWidth / 3.5),
+                                      detalsCard(
+                                          count: countData[2].toString(),
+                                          title: "Your orders",
+                                          width: context.screenWidth / 3.5),
+                                    ],
+                                  );
+                                }
                               }),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          //   children: [
-                          //     detalsCard(
-                          //         count: "00",
-                          //         title: "In your Crat",
-                          //         width: context.screenWidth / 3.5),
-                          //     detalsCard(
-                          //         count: "22",
-                          //         title: "in your Wish list",
-                          //         width: context.screenWidth / 3.5),
-                          //     detalsCard(
-                          //         count: "652",
-                          //         title: "Your orders",
-                          //         width: context.screenWidth / 3.5),
-                          //   ],
-                          // ),
-                          // 20.heightBox,
 
                           //button section
 
@@ -204,86 +186,3 @@ class ProfileScrn extends StatelessWidget {
                 })));
   }
 }
-
-
-
-
-/*
-import 'package:d_mart/common_widget/bg_widget.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/view/profilr_scr/comp/details_card.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-class ProfileScrn extends StatelessWidget {
-  const ProfileScrn({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return bgWidget(
-        child: Scaffold(
-      body: SafeArea(
-          child: Container(
-        padding: EdgeInsets.all(8),
-        child: Column(
-          children: [
-            // editprof button
-
-            Align(
-                alignment: Alignment.topRight,
-                child: Icon(
-                  Icons.edit,
-                  color: whiteColor,
-                )),
-            Row(
-              children: [
-                Image.asset(imgProfile2, width: 100, fit: BoxFit.cover)
-                    .box
-                    .roundedFull
-                    .clip(Clip.antiAlias)
-                    .make(),
-                10.heightBox,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      "dummy".text.fontFamily(semibold).white.make(),
-                      5.heightBox,
-                      '@hhuuusd.com'.text.white.make(),
-                    ],
-                  ),
-                ),
-                OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                        side: BorderSide(color: whiteColor)),
-                    onPressed: () {},
-                    child: logout.text.fontFamily(semibold).white.make())
-              ],
-            ),
-            20.heightBox,
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                detalsCard(
-                    count: "00",
-                    title: "in your Crat",
-                    width: context.screenWidth / 3.5),
-                detalsCard(
-                    count: "22",
-                    title: "in your Wish list",
-                    width: context.screenWidth / 3.5),
-                detalsCard(
-                    count: "652",
-                    title: "Your orders",
-                    width: context.screenWidth / 3.5),
-              ],
-            ),
-          ],
-        ),
-      )),
-    ));
-  }
-}
-*/

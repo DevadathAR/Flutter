@@ -85,7 +85,7 @@ class EditProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ProfileController());
-
+print("test${data["imageurl"]}");
     return bgWidget(
         child: Scaffold(
       appBar: AppBar(),
@@ -95,7 +95,7 @@ class EditProfileScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               //if data image and controller path is empty
-              data[0]['imageurl'] == '' && controller.profileImagePath.isEmpty
+              data['imageurl'] == '' && controller.profileImagePath.isEmpty
                   ? Image.asset(imgProfile2, width: 80, fit: BoxFit.cover)
                       .box
                       .roundedFull
@@ -103,9 +103,9 @@ class EditProfileScreen extends StatelessWidget {
                       .make()
           
                   //if data is not empty but controller path is empty
-                  : data[0]['imageurl'] != '' && controller.profileImagePath.isEmpty
+                  : data['imageurl'] != '' && controller.profileImagePath.isEmpty
                       ? Image.network(
-                          data[0]['imageurl'],
+                          data['imageurl'],
                           width: 100,
                           fit: BoxFit.cover,
                         ).box.roundedFull.clip(Clip.antiAlias).make()
@@ -132,17 +132,17 @@ class EditProfileScreen extends StatelessWidget {
                   title: name,
                   isPass: false),
               10.heightBox,
-              // CustomTestFiled(
-              //     controller: controller.oldPassController,
-              //     hint: pswd_hint,
-              //     title: oldPass,
-              //     isPass: true),
-              // 10.heightBox,
-              // CustomTestFiled(
-              //     controller: controller.newPassController,
-              //     hint: pswd_hint,
-              //     title: newPass,
-              //     isPass: true),
+              CustomTestFiled(
+                  controller: controller.oldPassController,
+                  hint: pswd_hint,
+                  title: oldpass,
+                  isPass: true),
+              10.heightBox,
+              CustomTestFiled(
+                  controller: controller.newPassController,
+                  hint: pswd_hint,
+                  title: newpass,
+                  isPass: true),
               20.heightBox,
               controller.isloading.value
                   ? const CircularProgressIndicator(
@@ -159,7 +159,7 @@ class EditProfileScreen extends StatelessWidget {
                             if (controller.profileImagePath.value.isNotEmpty) {
                               await controller.uploadProfileImage();
                             } else {
-                              controller.profileImageLink = data[0]['imageurl'];
+                              controller.profileImageLink = data['imageurl'];
                             }
           
                             //if old pass matches
