@@ -4,7 +4,6 @@ import 'package:d_mart/consts/consts.dart';
 import 'package:d_mart/consts/list.dart';
 import 'package:d_mart/view/chat_scrn/chat_scrn.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ItemDetails extends StatelessWidget {
   final String? title;

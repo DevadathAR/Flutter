@@ -8,6 +8,7 @@ import 'package:d_mart/consts/strings.dart';
 import 'package:d_mart/view/home_screen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class SignUp extends StatefulWidget {
@@ -41,29 +42,29 @@ class _SignUpState extends State<SignUp> {
             10.heightBox,
             Obx(()=> Column(
                 children: [
-                  CustomTestFiled(
-                      title: name,
+                  CustomTextField(
+                      label: name,
                       hint: namehint,
                       controller: nameController,
-                      isPass: false),
+                      isDesc: false),
                   5.heightBox,
-                  CustomTestFiled(
-                      title: email,
+                  CustomTextField(
+                      label: email,
                       hint: email_hint,
                       controller: emailController,
-                      isPass: false),
+                      isDesc: false),
                   5.heightBox,
-                  CustomTestFiled(
-                      title: pswd,
+                  CustomTextFieldHide(
+                      label: pswd,
                       hint: pswd_hint,
                       controller: pswdController,
-                      isPass: true),
+                      isDesc: false),
                   5.heightBox,
-                  CustomTestFiled(
-                      title: repswd,
+                  CustomTextFieldHide(
+                      label: repswd,
                       hint: pswd_hint,
                       controller: pswdretypController,
-                      isPass: true),
+                      isDesc: false),
                   5.heightBox,
                   Row(
                     children: [

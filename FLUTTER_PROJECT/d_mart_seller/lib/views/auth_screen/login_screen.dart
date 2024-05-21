@@ -1,5 +1,6 @@
 import 'package:d_mart_seller/const/const.dart';
 
+
 class LogInScreen extends StatelessWidget {
   const LogInScreen({super.key});
 
@@ -24,88 +25,93 @@ class LogInScreen extends StatelessWidget {
                     icLogo,
                     width: 70,
                     height: 80,
-                  )
-                      .box
-                      .border(color: white)
-                      .rounded
-                      .padding(const EdgeInsets.all(8.0))
-                      .make(),
+                  ).box.border(color: white).rounded.padding(const EdgeInsets.all(8.0)).make(),
                   10.widthBox,
                   boldText(
                     text: appname,
                     size: 22.0,
-                  )
+                  ),
                 ],
               ),
               60.heightBox,
               normalText(text: loginTo, size: 18, color: lightGrey),
-              20.heightBox, Column(
-                  children: [
-                    TextFormField(
-                      controller: controller.emailController,
-                      decoration: const InputDecoration(
-                          filled: true,
-                          fillColor: textfieldGrey,
-                          hintText: emailhint,
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: purpleColor,
-                          ),
-                          border: InputBorder.none),
+              20.heightBox,
+              Column(
+                children: [
+                  TextFormField(
+                    controller: controller.emailController,
+                    decoration: const InputDecoration(
+                      filled: true,
+                      fillColor: textfieldGrey,
+                      hintText: emailhint,
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: purpleColor,
+                      ),
+                      border: InputBorder.none,
                     ),
-                    10.heightBox,
-                    TextFormField(
-                      controller: controller.passwordController,
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                          filled: true,
-                          
-                          fillColor: textfieldGrey,
-                          hintText: passwordhint,
-                          prefixIcon: Icon(
-                            Icons.password,
-                            color: purpleColor,
-                          ),
-                          border: InputBorder.none),
+                  ),
+                  10.heightBox,
+                  Obx(() => TextFormField(
+                    controller: controller.passwordController,
+                    obscureText: controller.isPasswordVisible.value,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: textfieldGrey,
+                      hintText: passwordhint,
+                      prefixIcon: const Icon(
+                        Icons.password,
+                        color: purpleColor,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          controller.isPasswordVisible.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: purpleColor,
+                        ),
+                        onPressed: () {
+                          controller.togglePasswordVisibility();
+                        },
+                      ),
+                      border: InputBorder.none,
                     ),
-                    10.heightBox,
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                            onPressed: () {},
-                            child: normalText(
-                                text: forgotPassword, color: purpleColor))),
-                    30.heightBox,
-                    SizedBox(
-                        width: context.screenWidth - 40,
-                        child:controller.isloading.value ? loadingIndicator() :ourButton(
+                  )),
+                  10.heightBox,
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: normalText(
+                        text: forgotPassword,
+                        color: purpleColor,
+                      ),
+                    ),
+                  ),
+                  30.heightBox,
+                  SizedBox(
+                    width: context.screenWidth - 40,
+                    child: controller.isloading.value
+                        ? loadingIndicator()
+                        : ourButton(
                             title: login,
                             color: purpleColor,
                             onPress: () async {
-                              // Get.to(() => const Home());
                               controller.isloading(true);
-                              await controller
-                                  .loginMethod(context: context)
-                                  .then((value) {
+                              await controller.loginMethod(context: context).then((value) {
                                 if (value != null) {
                                   VxToast.show(context, msg: "Logged in");
                                   controller.isloading(false);
-                                  controller.isloading(false);
-                                  Get.offAll(() => Home());
+                                  Get.offAll(() => const Home());
                                 } else {
                                   controller.isloading(false);
                                 }
                               });
-                            }))
-                  ],
-                )
-                    .box
-                    .white
-                    .rounded
-                    .outerShadowMd
-                    .padding(const EdgeInsets.all(8))
-                    .make(),
-              
+                            },
+                          ),
+                  ),
+                ],
+              ).box.white.rounded.outerShadowMd.padding(const EdgeInsets.all(8)).make(),
               20.heightBox,
               Center(child: normalText(text: anyProblem, color: lightGrey)),
               const Spacer(),

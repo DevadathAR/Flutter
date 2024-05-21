@@ -1,75 +1,3 @@
-// import 'dart:io';
-
-// import 'package:get/get.dart';
-// import '../../../common_widget/bg_widget.dart';
-// import '../../../conntrollers/profile_controler.dart';
-// import '../../../consts/consts.dart';
-// import 'package:d_mart/common_widget/custom_textfiled.dart';
-// import 'package:d_mart/common_widget/out_button.dart';
-
-// class EditProfileScreen extends StatelessWidget {
-//    const EditProfileScreen({super.key});
-
-
-
-//   @override
-//   Widget build(BuildContext context) {
-
-//     var controller = Get.find<ProfileController>();
-    
-//     return bgWidget(
-//         child: Scaffold(
-//       appBar: AppBar(),
-//       body: Obx(()=> Column(
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             controller.profileImgPath.isEmpty
-//                 ? Image.asset(imgProfile2, width: 130, fit: BoxFit.cover)
-//                     .box
-//                     .roundedFull
-//                     .clip(Clip.antiAlias)
-//                     .make()
-//                 : Image.file(File(controller.profileImgPath.value)),
-//             10.heightBox,
-//             ourbutton(
-//                 color: redColor,
-//                 onPress: () {
-//                   controller.changeImage(context);
-//                 },
-//                 txtcolor: whiteColor,
-//                 txt: "Change"),
-//             const Divider(),
-//             20.heightBox,
-//             CustomTestFiled(hint: namehint, title: name, isPass: false),
-//             CustomTestFiled(hint: pswd_hint, title: pswd, isPass: true),
-//             SizedBox(
-//               width: context.screenWidth - 40,
-//               child: ourbutton(
-//                   color: green,
-//                   onPress: () {},
-//                   txtcolor: whiteColor,
-//                   txt: "Save"),
-//             ),
-//           ],
-//         )
-//             .box
-//             .padding(const EdgeInsets.all(16))
-//             .white
-//             .rounded
-//             .margin(const EdgeInsets.only(top: 50, left: 12, right: 12))
-//             .make(),
-//       ),
-//     ));
-//   }
-// }
-
-
-
-
-
-
-
-
 import 'dart:io';
 import 'package:d_mart/common_widget/bg_widget.dart';
 import 'package:d_mart/common_widget/custom_textfiled.dart';
@@ -85,7 +13,7 @@ class EditProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ProfileController());
-print("test${data["imageurl"]}");
+    // print("test${data["imageurl"]}");
     return bgWidget(
         child: Scaffold(
       appBar: AppBar(),
@@ -101,15 +29,16 @@ print("test${data["imageurl"]}");
                       .roundedFull
                       .clip(Clip.antiAlias)
                       .make()
-          
+
                   //if data is not empty but controller path is empty
-                  : data['imageurl'] != '' && controller.profileImagePath.isEmpty
+                  : data['imageurl'] != '' &&
+                          controller.profileImagePath.isEmpty
                       ? Image.network(
                           data['imageurl'],
                           width: 100,
                           fit: BoxFit.cover,
                         ).box.roundedFull.clip(Clip.antiAlias).make()
-          
+
                       //if both are empty
                       : Image.file(
                           File(controller.profileImagePath.value),
@@ -126,23 +55,23 @@ print("test${data["imageurl"]}");
                   txt: "Change"),
               const Divider(),
               20.heightBox,
-              CustomTestFiled(
+              CustomTextField(
                   controller: controller.nameController,
                   hint: namehint,
-                  title: name,
-                  isPass: false),
+                  label: name,
+                  isDesc: false),
               10.heightBox,
-              CustomTestFiled(
+              CustomTextFieldHide(
                   controller: controller.oldPassController,
                   hint: pswd_hint,
-                  title: oldpass,
-                  isPass: true),
+                  label: oldpass,
+                  isDesc: false),
               10.heightBox,
-              CustomTestFiled(
+              CustomTextFieldHide(
                   controller: controller.newPassController,
                   hint: pswd_hint,
-                  title: newpass,
-                  isPass: true),
+                  label: newpass,
+                  isDesc: false),
               20.heightBox,
               controller.isloading.value
                   ? const CircularProgressIndicator(
@@ -154,23 +83,24 @@ print("test${data["imageurl"]}");
                           color: redColor,
                           onPress: () async {
                             controller.isloading(true);
-          
+
                             //if image is not selected
                             if (controller.profileImagePath.value.isNotEmpty) {
                               await controller.uploadProfileImage();
                             } else {
                               controller.profileImageLink = data['imageurl'];
                             }
-          
+
                             //if old pass matches
-          
+
                             if (data['password'] ==
                                 controller.oldPassController.text) {
                               await controller.changeAuthPassword(
                                   email: data['email'],
                                   password: controller.oldPassController.text,
-                                  newpassword: controller.newPassController.text);
-          
+                                  newpassword:
+                                      controller.newPassController.text);
+
                               await controller.updateProfile(
                                   imgUrl: controller.profileImageLink,
                                   name: controller.nameController.text,

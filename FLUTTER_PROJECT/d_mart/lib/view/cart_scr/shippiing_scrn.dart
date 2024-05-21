@@ -44,30 +44,30 @@ class ShippingDetails extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            CustomTestFiled(
+            CustomTextField(
                 hint: "Address",
-                isPass: false,
-                title: "Address",
-                controller: controller.addressConntroller),
-            CustomTestFiled(
+                isDesc: true,
+                label: "Address",
+                controller: controller.addressConntroller),5.heightBox,
+            CustomTextField(
                 hint: "Ciity",
-                isPass: false,
-                title: "City",
-                controller: controller.cityConntroller),
-            CustomTestFiled(
+                isDesc: false,
+                label: "City",
+                controller: controller.cityConntroller),5.heightBox,
+            CustomTextField(
                 hint: "State",
-                isPass: false,
-                title: "State",
-                controller: controller.stateConntroller),
-            CustomTestFiled(
+                isDesc: false,
+                label: "State",
+                controller: controller.stateConntroller),5.heightBox,
+            CustomTextField(
                 hint: "Poostal Code",
-                isPass: false,
-                title: "Postal Code",
-                controller: controller.postalCodeConntroller),
-            CustomTestFiled(
+                isDesc: false,
+                label: "Postal Code",
+                controller: controller.postalCodeConntroller),5.heightBox,
+            CustomTextField(
                 hint: "Phone",
-                isPass: false,
-                title: "Phone Number",
+                isDesc: false,
+                label: "Phone Number",
                 controller: controller.phoneConntroller),
           ],
         ),

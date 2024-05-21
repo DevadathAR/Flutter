@@ -30,15 +30,16 @@ class LogInScrn extends StatelessWidget {
             Obx(
               () => Column(
                 children: [
-                  CustomTestFiled(
-                      title: email,
+                  CustomTextField(
+                      label: email,
                       hint: email_hint,
-                      isPass: false,
+                      isDesc: false,
                       controller: controller.emailController),
-                  CustomTestFiled(
-                      title: pswd,
+                      10.heightBox,
+                  CustomTextFieldHide(
+                      label: pswd,
                       hint: pswd_hint,
-                      isPass: true,
+                      isDesc: false,
                       controller: controller.pswdController),
                   Align(
                       alignment: Alignment.bottomRight,

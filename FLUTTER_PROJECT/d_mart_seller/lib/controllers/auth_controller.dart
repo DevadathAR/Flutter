@@ -8,6 +8,8 @@ class AuthController extends GetxController {
 
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+    var isPasswordVisible = true.obs;
+
   
   //log i n metord
 
@@ -56,6 +58,10 @@ signoutMethood(context)async{
     catch(e){
       VxToast.show(context, msg: e.toString());
     }
+  }
+
+  void togglePasswordVisibility() {
+    isPasswordVisible.value = !isPasswordVisible.value;
   }
   
 }

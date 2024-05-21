@@ -1,11 +1,16 @@
 import 'package:d_mart_seller/const/const.dart';
+import 'package:d_mart_seller/controllers/product_controller.dart';
 
 class AddProduct extends StatelessWidget {
   const AddProduct({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+          var controller = Get.find<ProductController>();
+
     return Scaffold(
+
       backgroundColor: purpleColor,
       appBar: AppBar(
         leading: IconButton(
@@ -29,20 +34,20 @@ class AddProduct extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              customTextFiled(hint: "eg. BMW", label: "Product "),
+              customTextFiled(hint: "eg. BMW", label: "Product ",controller: controller.pNameController),
               10.heightBox,
               customTextFiled(
-                  hint: "eg. desc", label: "Description ", isDesc: true),
+                  hint: "eg. desc", label: "Description ", isDesc: true,controller: controller.pDescController),
               10.heightBox,
-              customTextFiled(hint: "eg. 15000", label: "price "),
+              customTextFiled(hint: "eg. 15000", label: "price ",controller: controller.pPriceController),
               10.heightBox,
-              customTextFiled(hint: "eg. 549", label: "quantity "),
+              customTextFiled(hint: "eg. 549", label: "quantity ",controller: controller.pQuantityController),
               10.heightBox,
-              productDropdown(),
+              productDropdown("Category",controller.categoryList,controller.categoryvalue,controller),
               10.heightBox,
-              productDropdown(),
+              productDropdown("subcategory",controller.subcategoryList,controller.subcategoryvalue,controller),
               10.heightBox,
-              Divider(
+              const Divider(
                 color: white,
               ),
               boldText(
