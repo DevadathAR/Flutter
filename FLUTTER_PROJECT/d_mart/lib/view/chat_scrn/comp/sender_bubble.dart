@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/consts/consts.dart';
 import 'package:intl/intl.dart' as intl;
 
 Widget senderBubble(DocumentSnapshot data) {

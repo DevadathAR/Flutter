@@ -1,4 +1,4 @@
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/consts/consts.dart';
 import 'package:get/get.dart';
 
 class HomeCntrlr extends GetxController {

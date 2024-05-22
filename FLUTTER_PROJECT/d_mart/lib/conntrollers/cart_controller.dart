@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/conntrollers/home_contrlrs.dart';
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/conntrollers/home_contrlrs.dart';
+import 'package:DreaMart/consts/consts.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController{
@@ -17,6 +17,8 @@ class CartController extends GetxController{
   
   late dynamic productSnapshot;
   var products = [];
+
+  var vendor = [];
   var placingOrder = false.obs;
 
   calculate(data){
@@ -55,7 +57,8 @@ class CartController extends GetxController{
       'order_delivered':false,
       'order_on_delivery':false,
       'total_amount':totalAmount,
-      'orders':FieldValue.arrayUnion(products)
+      'orders':FieldValue.arrayUnion(products),
+      'vendor':FieldValue.arrayUnion(vendor),
     });
     placingOrder(false);
 
@@ -65,6 +68,7 @@ class CartController extends GetxController{
   getProductDetails(){
 
     products.clear();
+    vendor.clear();
     for(var i=0;i<productSnapshot.length;i++){
       
         products.add({
@@ -76,6 +80,8 @@ class CartController extends GetxController{
           'title':productSnapshot[i]['title']
 
         });
+        vendor.add(productSnapshot[i]['vendor_id']);
+
        
     }
   }

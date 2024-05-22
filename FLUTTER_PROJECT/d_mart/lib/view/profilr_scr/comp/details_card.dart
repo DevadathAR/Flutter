@@ -1,5 +1,5 @@
-import 'package:d_mart/consts/colors.dart';
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/consts/colors.dart';
+import 'package:DreaMart/consts/consts.dart';
 import 'package:flutter/material.dart';
 
 Widget detalsCard({width,String? count, title}){

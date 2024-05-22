@@ -1,7 +1,7 @@
-import 'package:d_mart/common_widget/applog_wid.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/view/auth_scrn/login_scrn.dart';
-import 'package:d_mart/view/home_screen/home.dart';
+import 'package:DreaMart/common_widget/applog_wid.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/view/auth_scrn/login_scrn.dart';
+import 'package:DreaMart/view/home_screen/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -16,13 +16,13 @@ class _SplashScreenState extends State<SplashScreen> {
   
   changeScreen() {
     Future.delayed(const Duration(seconds: 3), () {
-      // Get.to(()=>LogInScrn());
+
 
       auth.authStateChanges().listen((User? user) {
         if (user == null && mounted) {
-          Get.to(() => LogInScrn());
+          Get.to(() => const LogInScrn());
         } else {
-          Get.to(() => Home());
+          Get.to(() => const Home());
         }
       });
     });
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: redColor,
       body: Center(
         child: Column(
-          children: [
+          children: [200.heightBox,
             Container(
               alignment: Alignment.topLeft,
               child: const Image(
@@ -60,7 +60,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 .white
                 .make(),
             1.heightBox,
-            appversion.text.gray800.make()
+            appversion.text.gray800.make(),
+            600.heightBox,
+            credits.text.color(whiteColor.withOpacity(.5)).size(12).make()
           ],
         ),
       ),

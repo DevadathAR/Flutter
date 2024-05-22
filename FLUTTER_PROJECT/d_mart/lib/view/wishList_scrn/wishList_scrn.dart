@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/common_widget/loading_indicator.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/services/firestore_services.dart';
+import 'package:DreaMart/common_widget/loading_indicator.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/services/firestore_services.dart';
 
 class WishListScreen extends StatelessWidget {
   const WishListScreen({super.key});

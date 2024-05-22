@@ -1,10 +1,10 @@
-import 'package:d_mart/common_widget/exit_dialog.dart';
-import 'package:d_mart/conntrollers/home_contrlrs.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/view/catogery_scr/category_scrn.dart';
-import 'package:d_mart/view/cart_scr/cart_scrn.dart';
-import 'package:d_mart/view/home_screen/home_scr.dart';
-import 'package:d_mart/view/profilr_scr/profile_scrn.dart';
+import 'package:DreaMart/common_widget/exit_dialog.dart';
+import 'package:DreaMart/conntrollers/home_contrlrs.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/view/catogery_scr/category_scrn.dart';
+import 'package:DreaMart/view/cart_scr/cart_scrn.dart';
+import 'package:DreaMart/view/home_screen/home_scr.dart';
+import 'package:DreaMart/view/profilr_scr/profile_scrn.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {

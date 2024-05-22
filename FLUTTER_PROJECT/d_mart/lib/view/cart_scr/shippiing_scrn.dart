@@ -1,8 +1,8 @@
-import 'package:d_mart/common_widget/custom_textfiled.dart';
-import 'package:d_mart/common_widget/out_button.dart';
-import 'package:d_mart/conntrollers/cart_controller.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/view/cart_scr/payment_method.dart';
+import 'package:DreaMart/common_widget/custom_textfiled.dart';
+import 'package:DreaMart/common_widget/out_button.dart';
+import 'package:DreaMart/conntrollers/cart_controller.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/view/cart_scr/payment_method.dart';
 import 'package:get/get.dart';
 
 class ShippingDetails extends StatelessWidget {
@@ -12,6 +12,7 @@ class ShippingDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.find<CartController>();
     return Scaffold(
+      backgroundColor: whiteColor,
       appBar: AppBar(
         backgroundColor: whiteColor,
         title: "Shipping info"
@@ -60,7 +61,7 @@ class ShippingDetails extends StatelessWidget {
                 label: "State",
                 controller: controller.stateConntroller),5.heightBox,
             CustomTextField(
-                hint: "Poostal Code",
+                hint: "Postal Code",
                 isDesc: false,
                 label: "Postal Code",
                 controller: controller.postalCodeConntroller),5.heightBox,

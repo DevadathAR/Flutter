@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/common_widget/home_button.dart';
-import 'package:d_mart/common_widget/loading_indicator.dart';
-import 'package:d_mart/conntrollers/home_contrlrs.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/consts/list.dart';
-import 'package:d_mart/services/firestore_services.dart';
-import 'package:d_mart/view/catogery_scr/item_details.dart';
-import 'package:d_mart/view/home_screen/comp/feature_butn.dart';
-import 'package:d_mart/view/home_screen/comp/search_scrn.dart';
+import 'package:DreaMart/common_widget/home_button.dart';
+import 'package:DreaMart/common_widget/loading_indicator.dart';
+import 'package:DreaMart/conntrollers/home_contrlrs.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/consts/list.dart';
+import 'package:DreaMart/services/firestore_services.dart';
+import 'package:DreaMart/view/catogery_scr/item_details.dart';
+import 'package:DreaMart/view/home_screen/comp/feature_butn.dart';
+import 'package:DreaMart/view/home_screen/comp/search_scrn.dart';
 import 'package:get/get.dart';
 
 class HomeScrn extends StatelessWidget {

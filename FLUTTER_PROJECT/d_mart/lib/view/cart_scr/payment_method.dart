@@ -1,9 +1,9 @@
-import 'package:d_mart/common_widget/loading_indicator.dart';
-import 'package:d_mart/common_widget/out_button.dart';
-import 'package:d_mart/conntrollers/cart_controller.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/consts/list.dart';
-import 'package:d_mart/view/home_screen/home.dart';
+import 'package:DreaMart/common_widget/loading_indicator.dart';
+import 'package:DreaMart/common_widget/out_button.dart';
+import 'package:DreaMart/conntrollers/cart_controller.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/consts/list.dart';
+import 'package:DreaMart/view/home_screen/home.dart';
 import 'package:get/get.dart';
 
 class PaymentMethods extends StatelessWidget {

@@ -1,8 +1,8 @@
-import 'package:d_mart/common_widget/out_button.dart';
-import 'package:d_mart/conntrollers/prodect_controller.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/consts/list.dart';
-import 'package:d_mart/view/chat_scrn/chat_scrn.dart';
+import 'package:DreaMart/common_widget/out_button.dart';
+import 'package:DreaMart/conntrollers/prodect_controller.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/consts/list.dart';
+import 'package:DreaMart/view/chat_scrn/chat_scrn.dart';
 import 'package:get/get.dart';
 
 class ItemDetails extends StatelessWidget {

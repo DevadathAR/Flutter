@@ -1,5 +1,5 @@
-import 'package:d_mart/common_widget/out_button.dart';
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/common_widget/out_button.dart';
+import 'package:DreaMart/consts/consts.dart';
 import 'package:flutter/services.dart';
 
 Widget exitDialog(context) {

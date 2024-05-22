@@ -1,6 +1,6 @@
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/view/order_scrn/comp/order_place_details.dart';
-import 'package:d_mart/view/order_scrn/comp/order_status.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/view/order_scrn/comp/order_place_details.dart';
+import 'package:DreaMart/view/order_scrn/comp/order_status.dart';
 import 'package:intl/intl.dart' as intl;
 
 class OrderDetails extends StatelessWidget {

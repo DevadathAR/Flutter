@@ -30,7 +30,7 @@ class AddProduct extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -62,7 +62,7 @@ class AddProduct extends StatelessWidget {
                   text: "First image will be your dispaly image",
                   color: lightGrey.withOpacity(.40)),
               10.heightBox,
-              Divider(
+              const Divider(
                 color: white,
               ),
               boldText(

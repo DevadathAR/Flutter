@@ -1,5 +1,5 @@
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/view/catogery_scr/category_details.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/view/catogery_scr/category_details.dart';
 import 'package:get/get.dart';
 
 Widget featureButton({String? title, icon}) {

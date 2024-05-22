@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/conntrollers/home_contrlrs.dart';
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/conntrollers/home_contrlrs.dart';
+import 'package:DreaMart/consts/consts.dart';
 import 'package:get/get.dart';
 
 class ChatController extends GetxController {

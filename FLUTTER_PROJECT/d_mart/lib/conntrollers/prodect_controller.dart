@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/models/category_model.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/models/category_model.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';

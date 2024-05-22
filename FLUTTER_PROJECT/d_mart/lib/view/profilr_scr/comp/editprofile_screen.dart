@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'package:d_mart/common_widget/bg_widget.dart';
-import 'package:d_mart/common_widget/custom_textfiled.dart';
-import 'package:d_mart/common_widget/out_button.dart';
-import 'package:d_mart/conntrollers/profile_controler.dart';
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/common_widget/bg_widget.dart';
+import 'package:DreaMart/common_widget/custom_textfiled.dart';
+import 'package:DreaMart/common_widget/out_button.dart';
+import 'package:DreaMart/conntrollers/profile_controler.dart';
+import 'package:DreaMart/consts/consts.dart';
 import 'package:get/get.dart';
 
 class EditProfileScreen extends StatelessWidget {

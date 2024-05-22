@@ -1,4 +1,4 @@
-import 'package:d_mart/consts/consts.dart';
+import 'package:DreaMart/consts/consts.dart';
 
 Widget orderPlaceDetails({title1, title2, d1, d2}) {
   return Padding(

@@ -1,17 +1,18 @@
+import 'package:DreaMart/view/splsh_scr/splash_scrn.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/common_widget/bg_widget.dart';
-import 'package:d_mart/common_widget/loading_indicator.dart';
-import 'package:d_mart/conntrollers/auth_contrlr.dart';
-import 'package:d_mart/conntrollers/profile_controler.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/consts/list.dart';
-import 'package:d_mart/services/firestore_services.dart';
-import 'package:d_mart/view/auth_scrn/login_scrn.dart';
-import 'package:d_mart/view/chat_scrn/messaging_scrn.dart';
-import 'package:d_mart/view/order_scrn/order_scrn.dart';
-import 'package:d_mart/view/profilr_scr/comp/details_card.dart';
-import 'package:d_mart/view/profilr_scr/comp/editprofile_screen.dart';
-import 'package:d_mart/view/wishList_scrn/wishList_scrn.dart';
+import 'package:DreaMart/common_widget/bg_widget.dart';
+import 'package:DreaMart/common_widget/loading_indicator.dart';
+import 'package:DreaMart/conntrollers/auth_contrlr.dart';
+import 'package:DreaMart/conntrollers/profile_controler.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/consts/list.dart';
+import 'package:DreaMart/services/firestore_services.dart';
+import 'package:DreaMart/view/auth_scrn/login_scrn.dart';
+import 'package:DreaMart/view/chat_scrn/messaging_scrn.dart';
+import 'package:DreaMart/view/order_scrn/order_scrn.dart';
+import 'package:DreaMart/view/profilr_scr/comp/details_card.dart';
+import 'package:DreaMart/view/profilr_scr/comp/editprofile_screen.dart';
+import 'package:DreaMart/view/wishList_scrn/wishList_scrn.dart';
 import 'package:get/get.dart';
 
 class ProfileScrn extends StatelessWidget {
@@ -75,13 +76,13 @@ class ProfileScrn extends StatelessWidget {
                                     child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    "Sunny Leone"
+                                    "Your Name"
                                         .text
                                         .fontFamily(semibold)
                                         .white
                                         .make(),
                                     5.heightBox,
-                                    "sunnyleone69@example.com".text.white.make()
+                                    "abc@gmai.com".text.white.make()
                                   ],
                                 )),
                                 OutlinedButton(
@@ -91,7 +92,7 @@ class ProfileScrn extends StatelessWidget {
                                     onPressed: () async {
                                       await Get.put(AuthController()
                                           .signoutMethood(context));
-                                      Get.offAll(() => const LogInScrn());
+                                      Get.offAll(() => const SplashScreen());
                                     },
                                     child: logout.text
                                         .fontFamily(semibold)

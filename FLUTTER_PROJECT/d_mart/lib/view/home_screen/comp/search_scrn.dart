@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:d_mart/common_widget/loading_indicator.dart';
-import 'package:d_mart/consts/consts.dart';
-import 'package:d_mart/services/firestore_services.dart';
-import 'package:d_mart/view/catogery_scr/item_details.dart';
+import 'package:DreaMart/common_widget/loading_indicator.dart';
+import 'package:DreaMart/consts/consts.dart';
+import 'package:DreaMart/services/firestore_services.dart';
+import 'package:DreaMart/view/catogery_scr/item_details.dart';
 import 'package:get/get.dart';
 
 class SearchScrn extends StatelessWidget {
