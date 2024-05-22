@@ -22,7 +22,7 @@ class CustomTextField extends StatelessWidget {
         labelText: label,
         labelStyle: const TextStyle(
           color: Colors.red,
-          fontWeight: FontWeight.w700,
+          // fontWeight: FontWeight.w700,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),

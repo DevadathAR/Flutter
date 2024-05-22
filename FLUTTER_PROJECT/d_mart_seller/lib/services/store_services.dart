@@ -18,7 +18,7 @@ class StoreServices {
   static getOrders(uid) {
     return firestore
         .collection(ordersCollection)
-        .where('vendors', arrayContains: uid)
+        .where('vendor', arrayContains: uid)
         .snapshots();
   }
 

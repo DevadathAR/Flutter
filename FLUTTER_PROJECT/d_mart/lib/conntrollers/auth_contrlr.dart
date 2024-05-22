@@ -1,4 +1,5 @@
 
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:DreaMart/consts/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,6 +15,7 @@ class AuthController extends GetxController {
 
   var emailController  = TextEditingController();
   var pswdController  = TextEditingController();
+  
   //log i n metord
 
   Future<UserCredential?> loginMethod({ context}) async {
@@ -22,6 +24,7 @@ class AuthController extends GetxController {
     try {
       userCredential =
           await auth.signInWithEmailAndPassword(email: emailController.text, password: pswdController.text);
+          
     } on FirebaseException catch (e) {
       VxToast.show(context, msg: e.toString());
     }
@@ -44,9 +47,9 @@ class AuthController extends GetxController {
 
   // storinng data method
   storeUserdata({name, pswd, email,}) async {
-    DocumentReference store =
-        await firestore.collection(usersCollection).doc(currentUser!.uid);
-    store.set({'name': name, 'pswd': pswd, 'email': email, 'imageurl': '','id':currentUser!.uid,'cart_count': '00','wishlist_count': '00','order_count':'00'});
+    print("authuser${auth.currentUser?.uid}");
+    DocumentReference store =await firestore.collection(usersCollection).doc(auth.currentUser?.uid);
+    store.set({'name': name, 'pswd': pswd, 'email': email, 'imageurl': "",'id':auth.currentUser?.uid,'cart_count': '00','wishlist_count': '00','order_count':'00'});
   }
 
 

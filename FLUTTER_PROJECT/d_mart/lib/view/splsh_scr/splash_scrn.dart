@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: redColor,
       body: Center(
         child: Column(
-          children: [200.heightBox,
+          children: [SizedBox(height: context.screenHeight*.25,),
             Container(
               alignment: Alignment.topLeft,
               child: const Image(
@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 .make(),
             1.heightBox,
             appversion.text.gray800.make(),
-            600.heightBox,
+            SizedBox(height: context.screenHeight*.20,),
             credits.text.color(whiteColor.withOpacity(.5)).size(12).make()
           ],
         ),

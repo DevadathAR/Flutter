@@ -1,7 +1,7 @@
 import 'package:d_mart_seller/const/const.dart';
 
 class ProductDetails extends StatelessWidget {
-  final data;
+  final dynamic data;
   const ProductDetails({super.key,this.data});
 
   @override

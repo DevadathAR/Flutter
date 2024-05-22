@@ -7,7 +7,6 @@ import 'package:DreaMart/conntrollers/profile_controler.dart';
 import 'package:DreaMart/consts/consts.dart';
 import 'package:DreaMart/consts/list.dart';
 import 'package:DreaMart/services/firestore_services.dart';
-import 'package:DreaMart/view/auth_scrn/login_scrn.dart';
 import 'package:DreaMart/view/chat_scrn/messaging_scrn.dart';
 import 'package:DreaMart/view/order_scrn/order_scrn.dart';
 import 'package:DreaMart/view/profilr_scr/comp/details_card.dart';
@@ -76,13 +75,13 @@ class ProfileScrn extends StatelessWidget {
                                     child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    "Your Name"
+                                   datas['name'].toString()
                                         .text
                                         .fontFamily(semibold)
                                         .white
                                         .make(),
                                     5.heightBox,
-                                    "abc@gmai.com".text.white.make()
+                                   datas['email'].toString().text.white.make()
                                   ],
                                 )),
                                 OutlinedButton(

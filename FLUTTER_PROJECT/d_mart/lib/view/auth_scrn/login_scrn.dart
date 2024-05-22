@@ -35,7 +35,7 @@ class LogInScrn extends StatelessWidget {
                       hint: email_hint,
                       isDesc: false,
                       controller: controller.emailController),
-                      10.heightBox,
+                  10.heightBox,
                   CustomTextFieldHide(
                       label: pswd,
                       hint: pswd_hint,
@@ -56,11 +56,15 @@ class LogInScrn extends StatelessWidget {
                                 await controller
                                     .loginMethod(context: context)
                                     .then((value) {
+                                  return controller.storeUserdata(
+                                      email: controller.emailController.text,
+                                      pswd: controller.pswdController.text,
+                                      name:"");
+                                }).then((value) {
                                   if (value != null) {
                                     VxToast.show(context, msg: loggedin);
                                     Get.offAll(() => const Home());
-                                  }
-                                  else{
+                                  } else {
                                     controller.isloading(false);
                                   }
                                 });

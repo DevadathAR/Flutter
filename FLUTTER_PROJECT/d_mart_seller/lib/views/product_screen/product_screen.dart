@@ -8,13 +8,12 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-          var controller = Get.put(ProductController());
+    var controller = Get.put(ProductController());
 
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () async{
-           await controller.getcategories();
+          onPressed: () async {
+            await controller.getcategories();
             controller.populatedCategoryList();
             Get.to(() => const AddProduct());
           },
@@ -22,23 +21,26 @@ class ProductScreen extends StatelessWidget {
           child: const Icon(Icons.add),
         ),
         appBar: appBarWidget(products),
-        body: 
-        StreamBuilder(stream: StoreServices.getProducts(currentUser!.uid),
-         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot>snapshot){
-          if(!snapshot.hasData){return loadingIndicator();}
-          else{
-            
-            var data = snapshot.data!.docs;
-            return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: List.generate(data.length,
-                  
-                  (index) => ListTile(
+        body: StreamBuilder(
+            stream: StoreServices.getProducts(currentUser!.uid),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return loadingIndicator();
+              } else {
+                var data = snapshot.data!.docs;
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
+                    child: Column(
+                        children: List.generate(
+                      data.length,
+                      (index) => ListTile(
                         onTap: () {
-                          Get.to(() =>  ProductDetails(data: data[index],));
+                          Get.to(() => ProductDetails(
+                                data: data[index],
+                              ));
                         },
                         leading: Image.network(
                           data[index]['p_imgs'][0],
@@ -47,13 +49,21 @@ class ProductScreen extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                         title: boldText(
-                            text: "${data[index]['p_name']}", color: fontGrey, size: 14.0),
+                            text: "${data[index]['p_name']}",
+                            color: fontGrey,
+                            size: 14.0),
                         subtitle: Row(
                           children: [
                             normalText(
-                                text: "${data[index]['p_price']}", color: darkGrey, size: 12.0),
-                                10.widthBox,
-                                boldText(text: data[index]['is_featured']==true?"Featured":"",color: green)
+                                text: "${data[index]['p_price']}",
+                                color: darkGrey,
+                                size: 12.0),
+                            10.widthBox,
+                            boldText(
+                                text: data[index]['is_featured'] == true
+                                    ? "Featured"
+                                    : "",
+                                color: green)
                           ],
                         ),
                         trailing: VxPopupMenu(
@@ -61,26 +71,73 @@ class ProductScreen extends StatelessWidget {
                             menuBuilder: () => Column(
                                   children: List.generate(
                                       popupMenuIcons.length,
-                                      (index) => Padding(
+                                      (i) => Padding(
                                             padding: const EdgeInsets.all(12.0),
                                             child: Row(
                                               children: [
-                                                Icon(popupMenuIcons[index]),
+                                                Icon(
+                                                  popupMenuIcons[i],
+                                                  color:
+                                                      data[index]['featured_id'] ==
+                                                                  currentUser!
+                                                                      .uid &&
+                                                              i == 0
+                                                          ? green
+                                                          : darkGrey,
+                                                ),
                                                 10.widthBox,
                                                 normalText(
-                                                    text: popMenuTitles[index],
+                                                    text:
+                                                        data[index]['featured_id'] ==
+                                                                    currentUser!
+                                                                        .uid &&
+                                                                i == 0
+                                                            ? "Remove feature"
+                                                            : popMenuTitles[i],
                                                     color: darkGrey)
                                               ],
-                                            ).onTap(() {}),
+                                            ).onTap(() {
+                                              switch (i) {
+                                                case 0:
+                                                  if (data[index]
+                                                          ['is_featured'] ==
+                                                      true) {
+                                                    controller.removeFeatured(
+                                                        data[index].id);
+
+                                                    VxToast.show(context,
+                                                        msg: "Removed");
+                                                  } else {
+                                                    controller.addFeatured(
+                                                        data[index].id);
+                                                    VxToast.show(context,
+                                                        msg: "Added");
+                                                  }
+
+                                                  break;
+
+                                                  case 1:
+                                                  break; 
+                                                  case 2:
+                                                  controller.removeProducts(data[index].id);
+                                                  VxToast.show(context, msg: "Product removed");
+                                                  break;
+
+                                                  default:
+
+
+                                              }
+                                            }),
                                           )),
                                 ).box.roundedSM.white.width(200).make(),
                             clickType: VxClickType.singleClick,
                             child: const Icon(Icons.more_vert_outlined)),
-                      ),)
-            ),
-          ),
-        );}
-         })
+                      ),
+                    )),
+                  ),
+                );
+              }
+            })
 
 // Padding(
 //           padding: const EdgeInsets.all(8.0),

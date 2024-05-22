@@ -4,12 +4,8 @@ import 'package:DreaMart/common_widget/custom_textfiled.dart';
 import 'package:DreaMart/common_widget/out_button.dart';
 import 'package:DreaMart/conntrollers/auth_contrlr.dart';
 import 'package:DreaMart/consts/consts.dart';
-import 'package:DreaMart/consts/strings.dart';
 import 'package:DreaMart/view/home_screen/home.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({super.key});

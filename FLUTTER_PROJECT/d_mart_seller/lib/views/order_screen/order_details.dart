@@ -76,15 +76,17 @@ class _OrderDetailsState extends State<OrderDetails> {
                       ),
                       SwitchListTile(
                         activeColor: green,
-                        value: controller.ondelivery.value,
+                        value: controller.confirmed.value,
                         onChanged: (value) {
                           controller.confirmed.value = value;
                         },
                         title: boldText(text: "Confirmed", color: fontGrey),
                       ),
+
+
                       SwitchListTile(
                         activeColor: green,
-                        value: controller.delivered.value,
+                        value: controller.ondelivery.value,
                         onChanged: (value) {
                           controller.ondelivery.value = value;
                           controller.changeStatus(
@@ -94,9 +96,11 @@ class _OrderDetailsState extends State<OrderDetails> {
                         },
                         title: boldText(text: "On delivery", color: fontGrey),
                       ),
+
+
                       SwitchListTile(
                         activeColor: green,
-                        value: false,
+                        value: controller.delivered.value,
                         onChanged: (value) {
                           controller.delivered.value = value;
                           controller.changeStatus(
