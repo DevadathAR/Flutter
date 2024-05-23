@@ -23,15 +23,17 @@ class EditProfileScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               //if data image and controller path is empty
-              data['imageurl'] == '' && controller.profileImagePath.isEmpty
-                  ? Image.asset(imgProfile2, width: 80, fit: BoxFit.cover)
+              data['imageurl'] == '' && 
+              controller.profileImagePath.isEmpty ?
+                   Image.asset(imgProfile2, width: 80, fit: BoxFit.cover)
                       .box
                       .roundedFull
                       .clip(Clip.antiAlias)
                       .make()
 
                   //if data is not empty but controller path is empty
-                  : data['imageurl'] != '' &&
+                  : 
+                  data['imageurl'] != '' &&
                           controller.profileImagePath.isEmpty
                       ? Image.network(
                           data['imageurl'],
@@ -39,7 +41,7 @@ class EditProfileScreen extends StatelessWidget {
                           fit: BoxFit.cover,
                         ).box.roundedFull.clip(Clip.antiAlias).make()
 
-                      //if both are empty
+                  //     //if both are empty
                       : Image.file(
                           File(controller.profileImagePath.value),
                           width: 100,
@@ -128,3 +130,5 @@ class EditProfileScreen extends StatelessWidget {
     ));
   }
 }
+
+

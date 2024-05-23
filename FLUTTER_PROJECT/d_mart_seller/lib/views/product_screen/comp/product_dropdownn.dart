@@ -11,8 +11,8 @@ Widget productDropdown(hint,List<String> list, dropvalue,ProductController contr
           items: list.map((e) {
             return 
             DropdownMenuItem(
-              child: e.toString().text.make(),
               value: e,
+              child: e.toString().text.make(),
             )
             ;
           }).toList(),

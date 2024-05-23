@@ -75,13 +75,14 @@ class ProfileScrn extends StatelessWidget {
                                     child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                   datas['name'].toString()
+                                  //  datas['name'].toString()
+                                  "${datas['name']}"
                                         .text
                                         .fontFamily(semibold)
                                         .white
                                         .make(),
                                     5.heightBox,
-                                   datas['email'].toString().text.white.make()
+                                   "${datas['email']}".toString().text.white.make()
                                   ],
                                 )),
                                 OutlinedButton(

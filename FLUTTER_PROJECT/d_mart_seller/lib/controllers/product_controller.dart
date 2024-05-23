@@ -4,9 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:d_mart_seller/const/const.dart';
 import 'package:d_mart_seller/models/category_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProductController extends GetxController {
@@ -75,10 +73,11 @@ class ProductController extends GetxController {
     for(var item in pImagesList){
 
       var filename = basename(item.value);
-    var destination = 'images/vendor${currentUser!.uid}/$filename';
+    var destination = 'images/vendor/${currentUser!.uid}/$filename';
     Reference ref = FirebaseStorage.instance.ref().child(destination);
     await ref.putFile(File(item));
     var n = await ref.getDownloadURL();
+    pImageLinks.add(n);
 
     }
   }
