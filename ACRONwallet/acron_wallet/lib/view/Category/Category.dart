@@ -1,9 +1,12 @@
 import 'package:acron_wallet/const/colors.dart';
+import 'package:acron_wallet/const/lists.dart';
 import 'package:acron_wallet/view/Category/Helpper/CategoryCard.dart';
+import 'package:acron_wallet/view/Category/Helpper/CategorySpentList.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
-class Category extends StatelessWidget {
-  const Category({super.key});
+class CategoryPage extends StatelessWidget {
+  const CategoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +28,16 @@ class Category extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          const Expanded(
-              child: SizedBox(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: Image(
-                    image: AssetImage("assets/image/redBG.png"),
-                    fit: BoxFit.fill,
-                  ))),
+          const Positioned.fill(
+            child: SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: Image(
+                image: AssetImage("assets/image/redBG.png"),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
           Column(
             children: [
               const Padding(
@@ -42,58 +47,43 @@ class Category extends StatelessWidget {
                   child: Text(
                     "MY EXPENSES",
                     style: TextStyle(
-                        color: white,
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700),
+                      color: white,
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CategoryCard(
-                    context,
-                    label: "Food",
-                    iteamcolor: green,
-                    iteamamount: "5000",
-                    currency: "\$",
-                  ),
-                  CategoryCard(
-                    context,
-                    label: "Shopping",
-                    iteamcolor: brown,
-                    iteamamount: "6000",
-                    currency: "\$",
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CategoryCard(
-                    context,
-                    label: "Travel",
-                    iteamcolor: blue,
-                    iteamamount: "4000",
-                    currency: "\$",
-                  ),
-                  CategoryCard(
-                    context,
-                    label: "Grosseries",
-                    iteamcolor: purple,
-                    iteamamount: "3000",
-                    currency: "\$",
-                  ),
-                ],
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
+                  itemCount: listcategory.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CategoryCard(
+                        context,
+                        currency: "\$",
+                        iteamamount: listamount[index].toString(),
+                        iteamcolor: listcolor[index],
+                        label: listcategory[index],
+                      ).onTap(() {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const CategorySpentList();
+                          },
+                        ));
+                      }),
+                    );
+                  },
+                ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

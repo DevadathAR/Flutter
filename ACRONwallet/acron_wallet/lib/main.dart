@@ -1,4 +1,6 @@
+import 'package:acron_wallet/SplashScreen/SplashScreen.dart';
 import 'package:acron_wallet/view/Category/Category.dart';
+import 'package:acron_wallet/view/Category/Helpper/CategorySpentList.dart';
 import 'package:acron_wallet/view/DummyTest/dummy.dart';
 import 'package:acron_wallet/view/MyHome/Home.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -9,15 +11,11 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Home()
-    );
+        debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }

@@ -9,6 +9,9 @@ Widget CategoryList(context, {label, iteamColor}) {
 
   return Column(
     children: [
+      const SizedBox(
+        height: 8,
+      ),
       Container(
         height: 40,
         width: size.width * 0.8,
@@ -28,9 +31,6 @@ Widget CategoryList(context, {label, iteamColor}) {
           ),
         ),
       ),
-      const SizedBox(
-        height: 5,
-      )
     ],
   );
 }

@@ -10,6 +10,7 @@ dependencies:
   fl_chart: ^0.68.0
   flutter:
     sdk: flutter
+  velocity_x: ^4.2.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0

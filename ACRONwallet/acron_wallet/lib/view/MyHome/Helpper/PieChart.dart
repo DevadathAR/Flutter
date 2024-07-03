@@ -36,15 +36,14 @@ class PieChartWidget extends StatelessWidget {
   }
 
   List<PieChartSectionData> showingSections(context) {
-    const List<double> values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,];
     Size size = MediaQuery.of(context).size;
 
-    return List.generate(values.length, (i) {
+    return List.generate(listcategory.length, (i) {
       const fontSize = 15.0;
       return PieChartSectionData(
         color: listcolor[i],
-        value: values[i],
-        title: "${(values[i]).toStringAsFixed(1)}",
+        value: listamount[i],
+        title: (listamount[i]*100/totalamountspent()).toStringAsFixed(1)+"%",
         radius: size.width * 0.85 / 2,
         titleStyle: const TextStyle(
           fontSize: fontSize,
