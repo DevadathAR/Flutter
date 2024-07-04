@@ -1,6 +1,8 @@
 import 'package:acron_wallet/const/colors.dart';
 import 'package:acron_wallet/view/Profile/Helpper/ProfileTextfiled.dart';
+import 'package:acron_wallet/view/Profile/Profile.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});
@@ -54,7 +56,9 @@ class EditProfile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(200),
                     border: Border.all(color: pureblack),
                     color: white,
+                    
                   ),
+                  child: ClipOval(clipBehavior: Clip.antiAlias, child: Image(image: AssetImage("assets/image/me.jpg")),),
                 ),
               ),
               const SizedBox(
@@ -94,11 +98,17 @@ class EditProfile extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {},
-                style: ElevatedButton.styleFrom(backgroundColor: green),
+                style: ElevatedButton.styleFrom(backgroundColor: yubhasuchds),
                 child: const Text(
                   "SAVE",
-                  style: TextStyle(fontSize: 22),
-                ),
+                  style: TextStyle(fontSize: 22, color: pureblack),
+                ).onTap(() {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return Profile();
+                    },
+                  ));
+                }),
               )
             ],
           ),

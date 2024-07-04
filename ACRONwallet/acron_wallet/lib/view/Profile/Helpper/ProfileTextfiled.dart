@@ -14,11 +14,10 @@ Widget ProfileTexfiled(context, {length, label}) {
     ),
     child: Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text(
-        label,
-        style: const TextStyle(
-            color: pureblack, fontSize: 22, fontWeight: FontWeight.w700),
-      ),
+      child: TextFormField(
+          decoration: InputDecoration(
+        hintText: label,
+      )),
     ),
   );
 }

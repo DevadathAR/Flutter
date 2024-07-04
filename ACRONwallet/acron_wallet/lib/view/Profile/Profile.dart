@@ -1,6 +1,8 @@
 import 'package:acron_wallet/const/colors.dart';
+import 'package:acron_wallet/view/Profile/EditProfile/EditProfile.dart';
 import 'package:acron_wallet/view/Profile/Helpper/ProfileTextfiled.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -11,13 +13,19 @@ class Profile extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        actions: const [
+        actions:  [
           CircleAvatar(
             backgroundColor: Colors.transparent,
-            child: Icon(Icons.edit),
+            child: const Icon(Icons.edit).onTap(() {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return const EditProfile();
+              },
+            ));
+          }),
           ),
-          SizedBox(
-            width: 30,
+          const SizedBox(
+            width: 20,
           )
         ],
         title: const Text(
@@ -64,9 +72,14 @@ class Profile extends StatelessWidget {
                     border: Border.all(color: pureblack),
                     color: white,
                   ),
-                  // child: const Image(image: AssetImage("assets/image/me.jpg"),),
+                  child: Builder(
+                    builder: (context) {
+                      return ClipOval(clipBehavior: Clip.antiAlias, child: const Image(image: AssetImage("assets/image/me.jpg"),));
+                    }
+                  ),
                 ),
               ),
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
               const SizedBox(
                 height: 25,
               ),
@@ -99,6 +112,8 @@ class Profile extends StatelessWidget {
                   ],
                 ),
               )
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             ],
           ),
         ],

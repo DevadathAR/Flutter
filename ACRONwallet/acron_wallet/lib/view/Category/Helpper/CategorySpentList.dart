@@ -1,4 +1,5 @@
 import 'package:acron_wallet/const/colors.dart';
+import 'package:acron_wallet/const/lists.dart';
 import 'package:flutter/material.dart';
 
 class CategorySpentList extends StatelessWidget {
@@ -33,7 +34,24 @@ class CategorySpentList extends StatelessWidget {
                 ),
                 height: double.infinity,
                 width: double.infinity,
-                child: const Column()), ///// replace coum by listvew.builder
+                child: ListView.builder(itemCount: listcategory.length,itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 10,top: 10,right: 10),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(listfood[index]),
+                            Text(listfoodprice[index].toString()),
+                        
+                          ],
+                        ),
+                        Divider(color: white.withOpacity(.25),)
+                      ],
+                    ),
+                  );
+                },)), 
           )
         ],
       ),

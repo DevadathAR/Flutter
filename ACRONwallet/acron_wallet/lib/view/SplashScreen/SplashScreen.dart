@@ -1,4 +1,4 @@
-import 'package:acron_wallet/view/MyHome/Home.dart';
+import 'package:acron_wallet/view/Authenticate/Login.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const Home()),
+        MaterialPageRoute(builder: (context) => const Login()),
       );
     });
   }

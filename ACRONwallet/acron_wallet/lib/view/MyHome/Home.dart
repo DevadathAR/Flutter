@@ -4,6 +4,7 @@ import 'package:acron_wallet/view/Category/Category.dart';
 import 'package:acron_wallet/view/MyHome/Helpper/BudgetCard.dart';
 import 'package:acron_wallet/view/MyHome/Helpper/CategoryList.dart';
 import 'package:acron_wallet/view/MyHome/Helpper/PieChart.dart';
+import 'package:acron_wallet/view/Profile/Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -12,21 +13,35 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double totalamountspent() {
+      double totalspent = 0;
+      for (int i = 0; i < listamount.length; i++) {
+        totalspent += listamount[i];
+      }
+      return totalspent;
+    }
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        // actions: const [
-        //   CircleAvatar(
-        //     backgroundColor: Colors.transparent,
-        //     child: Icon(
-        //       Icons.person,
-        //       color: white,
-        //     ),
-        //   ),
-        //   SizedBox(
-        //     width: 20,
-        //   )
-        // ],
+        actions: [
+          CircleAvatar(
+            backgroundColor: Colors.transparent,
+            child: Icon(
+              Icons.person,
+              color: pureblack,
+            ),
+          ).onTap(() {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return Profile();
+              },
+            ));
+          }),
+          SizedBox(
+            width: 20,
+          )
+        ],
         // flexibleSpace: Stack(
         //   children: [
         //     Container(
@@ -69,7 +84,7 @@ class Home extends StatelessWidget {
                       BudgetCard(context,
                           label: "Outstanding Budget",
                           currency: "\$",
-                          amount: (25000-totalamountspent()).toString(),
+                          amount: (25000 - totalamountspent()).toString(),
                           iteamColor: blue),
                     ],
                   ),
@@ -85,9 +100,11 @@ class Home extends StatelessWidget {
                     height: 25,
                   ),
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: size.width*0.08,),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.08,
+                    ),
                     child: SizedBox(
-                      height: size.height * 0.4, 
+                      height: size.height * 0.4,
                       child: ListView.builder(
                         itemCount: listcategory.length,
                         itemBuilder: (context, index) {
@@ -99,7 +116,6 @@ class Home extends StatelessWidget {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
                                 return const CategoryPage();
-                                
                               },
                             ));
                           });

@@ -36,6 +36,13 @@ class PieChartWidget extends StatelessWidget {
   }
 
   List<PieChartSectionData> showingSections(context) {
+    double totalamountspent() {
+      double totalspent = 0;
+      for (int i = 0; i < listamount.length; i++) {
+        totalspent += listamount[i];
+      }
+      return totalspent;
+    }
     Size size = MediaQuery.of(context).size;
 
     return List.generate(listcategory.length, (i) {

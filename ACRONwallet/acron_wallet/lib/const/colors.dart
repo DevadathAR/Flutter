@@ -16,3 +16,4 @@ const brown = Color.fromARGB(255, 150, 75, 0);
 const pink = Color.fromARGB(255, 219, 49, 143);
 const teal = Color.fromRGBO(20, 248, 248, 1);
 const golden = Color.fromARGB(255, 230, 196, 118);
+const yubhasuchds = Color.fromARGB(255, 107, 196, 201);
