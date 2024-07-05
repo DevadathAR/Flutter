@@ -1,6 +1,7 @@
 import 'package:acron_wallet/const/colors.dart';
 import 'package:acron_wallet/const/fixed.dart';
 import 'package:acron_wallet/view/Authenticate/Login.dart';
+import 'package:acron_wallet/widgets/BGwidget.dart';
 import 'package:acron_wallet/widgets/LoginTextFiled.dart';
 import 'package:flutter/material.dart';
 
@@ -25,16 +26,7 @@ class _SignupState extends State<Signup> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
-        children: [
-          Container(
-            width: size.width * 1,
-            height: size.height * 1,
-            color: const Color.fromARGB(0, 255, 255, 255),
-            child: const Image(
-              image: AssetImage("assets/image/redBG.png"),
-              fit: BoxFit.fill,
-            ),
-          ),
+        children: [BGwidget(context),
           SizedBox(
             height: size.height * .25,
             child: Center(

@@ -28,89 +28,100 @@ class EditProfile extends StatelessWidget {
                     image: AssetImage("assets/image/redBG.png"),
                     fit: BoxFit.fill,
                   ))),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "EDIT PROFILE",
-                    style: TextStyle(
-                        color: white,
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              Center(
-                child: Container(
-                  height: 250,
-                  width: 250,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(200),
-                    border: Border.all(color: pureblack),
-                    color: white,
-                    
-                  ),
-                  child: ClipOval(clipBehavior: Clip.antiAlias, child: Image(image: AssetImage("assets/image/me.jpg")),),
-                ),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Center(
-                  child: ProfileTexfiled(context, length: 0.75, label: "Name")),
-              const SizedBox(
-                height: 15,
-              ),
-              Center(
-                  child:
-                      ProfileTexfiled(context, length: 0.75, label: "E-mail")),
-              const SizedBox(
-                height: 15,
-              ),
-              Center(
-                  child: ProfileTexfiled(context,
-                      length: 0.75, label: "Phone number")),
-              const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: size.width * 0.125),
-                child: Row(
-                  children: [
-                    ProfileTexfiled(context, length: 0.60, label: "Currency"),
-                    SizedBox(
-                      width: size.width * 0.025,
+          SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      "EDIT PROFILE",
+                      style: TextStyle(
+                          color: white,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w700),
                     ),
-                    ProfileTexfiled(context, length: 0.125, label: "\$"),
-                  ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(backgroundColor: yubhasuchds),
-                child: const Text(
-                  "SAVE",
-                  style: TextStyle(fontSize: 22, color: pureblack),
-                ).onTap(() {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return Profile();
-                    },
-                  ));
-                }),
-              )
-            ],
+                const SizedBox(
+                  height: 50,
+                ),
+                Center(
+                  child: Container(
+                    height: 250,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(200),
+                      border: Border.all(color: pureblack),
+                      color: white,
+                      
+                    ),
+                    child: ClipOval(clipBehavior: Clip.antiAlias, child: Image(image: AssetImage("assets/image/me.jpg")),),
+                  ),
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                Center(
+                    child: EditProfileTexfiled(context, length: 0.75, label: "Name")),
+                const SizedBox(
+                  height: 15,
+                ),
+                Center(
+                    child:
+                        EditProfileTexfiled(context, length: 0.75, label: "E-mail")),
+                const SizedBox(
+                  height: 15,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: size.width * 0.125),
+                  child: Row(
+                    children: [
+                      EditProfileTexfiled(context, length: 0.125, label: "+91"),
+                      SizedBox(
+                        width: size.width * 0.025,
+                      ),
+                      EditProfileTexfiled(context, length: 0.60, label: "9074948474"),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: size.width * 0.125),
+                  child: Row(
+                    children: [
+                      EditProfileTexfiled(context, length: 0.60, label: "Currency"),
+                      SizedBox(
+                        width: size.width * 0.025,
+                      ),
+                      EditProfileTexfiled(context, length: 0.125, label: "\$"),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(backgroundColor: floatingblue),
+                  child: const Text(
+                    "SAVE",
+                    style: TextStyle(fontSize: 22, color: pureblack),
+                  ).onTap(() {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return Profile();
+                      },
+                    ));
+                  }),
+                )
+              ],
+            ),
           ),
         ],
       ),

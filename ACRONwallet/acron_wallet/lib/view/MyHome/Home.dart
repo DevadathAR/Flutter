@@ -5,6 +5,7 @@ import 'package:acron_wallet/view/MyHome/Helpper/BudgetCard.dart';
 import 'package:acron_wallet/view/MyHome/Helpper/CategoryList.dart';
 import 'package:acron_wallet/view/MyHome/Helpper/PieChart.dart';
 import 'package:acron_wallet/view/Profile/Profile.dart';
+import 'package:acron_wallet/widgets/BGwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Colors.transparent,
             child: Icon(
               Icons.person,
@@ -34,11 +35,11 @@ class Home extends StatelessWidget {
           ).onTap(() {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return Profile();
+                return const Profile();
               },
             ));
           }),
-          SizedBox(
+          const SizedBox(
             width: 20,
           )
         ],
@@ -55,15 +56,7 @@ class Home extends StatelessWidget {
         // )
       ),
       body: Stack(
-        children: [
-          const SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: Image(
-              image: AssetImage("assets/image/redBG.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
+        children: [BGwidget(context),
           SizedBox(
             height: double.infinity,
             width: double.infinity,
@@ -106,6 +99,7 @@ class Home extends StatelessWidget {
                     child: SizedBox(
                       height: size.height * 0.4,
                       child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: listcategory.length,
                         itemBuilder: (context, index) {
                           return CategoryList(

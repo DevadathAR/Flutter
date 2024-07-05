@@ -1,5 +1,6 @@
 import 'package:acron_wallet/const/colors.dart';
 import 'package:acron_wallet/const/lists.dart';
+import 'package:acron_wallet/widgets/BGwidget.dart';
 import 'package:flutter/material.dart';
 
 class CategorySpentList extends StatelessWidget {
@@ -11,16 +12,7 @@ class CategorySpentList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Stack(
-        children: [
-          Container(
-            width: size.width * 1,
-            height: size.height * 1,
-            color: const Color.fromARGB(0, 255, 255, 255),
-            child: const Image(
-              image: AssetImage("assets/image/redBG.png"),
-              fit: BoxFit.fill,
-            ),
-          ),
+        children: [BGwidget(context),
           Padding(
             padding: const EdgeInsets.only(
                 left: 35.0, right: 35, bottom: 35, top: 80),
@@ -42,8 +34,8 @@ class CategorySpentList extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(listfood[index]),
-                            Text(listfoodprice[index].toString()),
+                            Text(listfood[index],style: TextStyle(fontSize: 18,color: pureblack),),
+                            Text(listfoodprice[index].toString(),style: TextStyle(fontSize: 18,color: pureblack),),
                         
                           ],
                         ),

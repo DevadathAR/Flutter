@@ -1,11 +1,10 @@
-import 'dart:io';
 import 'package:acron_wallet/const/colors.dart';
 import 'package:acron_wallet/const/fixed.dart';
 import 'package:acron_wallet/view/Authenticate/Signup.dart';
 import 'package:acron_wallet/view/MyHome/Home.dart';
+import 'package:acron_wallet/widgets/BGwidget.dart';
 import 'package:acron_wallet/widgets/LoginTextFiled.dart';
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Login extends StatelessWidget {
@@ -21,15 +20,7 @@ class Login extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            width: size.width * 1,
-            height: size.height * 1,
-            color: const Color.fromARGB(0, 255, 255, 255),
-            child: const Image(
-              image: AssetImage("assets/image/redBG.png"),
-              fit: BoxFit.fill,
-            ),
-          ),
+          BGwidget(context),
           SizedBox(
             height: size.height * .25,
             child: Center(
@@ -41,7 +32,9 @@ class Login extends StatelessWidget {
                   const Text(
                     "ACRON wallet",
                     style: TextStyle(
-                        color: white, fontSize: 38, fontWeight: FontWeight.w800),
+                        color: white,
+                        fontSize: 38,
+                        fontWeight: FontWeight.w800),
                   ),
                   const Text(
                     version,
@@ -82,7 +75,7 @@ class Login extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return Home();
+                          return const Home();
                         },
                       ));
                     },
@@ -122,16 +115,24 @@ class Login extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                          onTap: () => _launchURL('https://www.facebook.com/profile.php?id=100008696829620'),
+                          onTap: () => _launchURL(
+                              'https://www.facebook.com/profile.php?id=100008696829620'),
                           child: const Image(
                             image: AssetImage("assets/image/fb_logo.png"),
                           ),
                         ),
+                        SizedBox(
+                          width: 5,
+                        ),
                         GestureDetector(
-                          onTap: () => _launchURL('https://www.instagram.com/dev_da.th/'),
+                          onTap: () => _launchURL(
+                              'https://www.instagram.com/dev_da.th/'),
                           child: const Image(
                             image: AssetImage("assets/image/instalogo.jpeg"),
                           ),
+                        ),
+                        SizedBox(
+                          width: 5,
                         ),
                         GestureDetector(
                           onTap: () => _launchURL('https://x.com/_the_dev_'),
