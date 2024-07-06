@@ -48,103 +48,107 @@ class Login extends StatelessWidget {
             ),
           ),
           Center(
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(50),
-                ),
-                color: white,
-              ),
-              height: size.height * .5,
-              width: size.width * .75,
-              child: Column(
-                children: [
-                  const Text(
-                    "LogIn",
-                    style: TextStyle(
-                        color: pureblack,
-                        fontSize: 38,
-                        fontWeight: FontWeight.w800),
-                  ),
-                  LoginTextFiled(label: "Name"),
-                  LoginTextFiled(label: "Password"),
-                  SizedBox(
-                    height: size.height * 0.025,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return const Home();
-                        },
-                      ));
-                    },
-                    child: const Text("LogIn"),
-                    // style: const ButtonStyle(
-                    //   backgroundColor: MaterialStatePropertyAll(orange),
-                    // ),
-                  ),
-                  Align(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(noacc),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const Signup();
-                              },
-                            ));
-                          },
-                          child: const Text(
-                            "SignUp",
-                            style: TextStyle(color: red),
-                          ),
-                        ),
-                      ],
+            child: Column(
+              children: [SizedBox(height: size.height*.25,),
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
                     ),
-                  ),
-                  const Text(socialmedia),
-                  SizedBox(height: size.height * 0.0125),
-                  Container(
                     color: white,
-                    height: size.height * 0.06,
-                    width: size.width * 0.6,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: () => _launchURL(
-                              'https://www.facebook.com/profile.php?id=100008696829620'),
-                          child: const Image(
-                            image: AssetImage("assets/image/fb_logo.png"),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        GestureDetector(
-                          onTap: () => _launchURL(
-                              'https://www.instagram.com/dev_da.th/'),
-                          child: const Image(
-                            image: AssetImage("assets/image/instalogo.jpeg"),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        GestureDetector(
-                          onTap: () => _launchURL('https://x.com/_the_dev_'),
-                          child: const Image(
-                            image: AssetImage("assets/image/xlogo.png"),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
-                ],
-              ),
+                  height: size.height * .65,
+                  width: size.width * .75,
+                  child: Column(
+                    children: [
+                      const Text(
+                        "LogIn",
+                        style: TextStyle(
+                            color: pureblack,
+                            fontSize: 38,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      LoginTextFiled(label: "Name",hint: "Jacob J Jose"),
+                      LoginTextFiled(label: "Password",hint: "* * * * * *"),
+                      SizedBox(
+                        height: size.height * 0.025,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return const Home();
+                            },
+                          ));
+                        },
+                        child: const Text("LogIn"),
+                        // style: const ButtonStyle(
+                        //   backgroundColor: MaterialStatePropertyAll(orange),
+                        // ),
+                      ),
+                      Align(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(noacc),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return const Signup();
+                                  },
+                                ));
+                              },
+                              child: const Text(
+                                "SignUp",
+                                style: TextStyle(color: red),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Text(socialmedia),
+                      SizedBox(height: size.height * 0.0125),
+                      Container(
+                        color: white,
+                        height: size.height * 0.06,
+                        width: size.width * 0.6,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () => _launchURL(
+                                  'https://www.facebook.com/profile.php?id=100008696829620'),
+                              child: const Image(
+                                image: AssetImage("assets/image/fb_logo.png"),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            GestureDetector(
+                              onTap: () => _launchURL(
+                                  'https://www.instagram.com/dev_da.th/'),
+                              child: const Image(
+                                image: AssetImage("assets/image/instalogo.jpeg"),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            GestureDetector(
+                              onTap: () => _launchURL('https://x.com/_the_dev_'),
+                              child: const Image(
+                                image: AssetImage("assets/image/xlogo.png"),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],

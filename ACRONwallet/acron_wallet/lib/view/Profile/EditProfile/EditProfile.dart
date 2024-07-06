@@ -59,7 +59,7 @@ class EditProfile extends StatelessWidget {
                       color: white,
                       
                     ),
-                    child: ClipOval(clipBehavior: Clip.antiAlias, child: Image(image: AssetImage("assets/image/me.jpg")),),
+                    child: const ClipOval(clipBehavior: Clip.antiAlias, child: Image(image: AssetImage("assets/image/me.jpg")),),
                   ),
                 ),
                 const SizedBox(
@@ -113,9 +113,9 @@ class EditProfile extends StatelessWidget {
                     "SAVE",
                     style: TextStyle(fontSize: 22, color: pureblack),
                   ).onTap(() {
-                    Navigator.push(context, MaterialPageRoute(
+                    Navigator.pop(context, MaterialPageRoute(
                       builder: (context) {
-                        return Profile();
+                        return const Profile();
                       },
                     ));
                   }),

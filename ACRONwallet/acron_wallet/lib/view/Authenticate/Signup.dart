@@ -60,7 +60,7 @@ class _SignupState extends State<Signup> {
                     Radius.circular(50),
                   ),
                   color: white),
-              height: size.height * .42,
+              height: size.height * .6,
               width: size.width * .75,
               child: Column(
                 children: [

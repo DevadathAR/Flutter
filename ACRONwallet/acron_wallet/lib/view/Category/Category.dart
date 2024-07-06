@@ -14,6 +14,7 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    
     return Scaffold(
       floatingActionButton: Padding(
         padding: EdgeInsets.only(
@@ -30,14 +31,14 @@ class CategoryPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  return AddCategory();
+                  return const AddCategory();
                 },
               ));
             },
-            child: const Text(
-              "+",
-              style: TextStyle(
-                fontSize: 50,
+            child: const Center(
+              child: Text(
+                "+",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
               ),
             ),
           ),
@@ -75,7 +76,8 @@ class CategoryPage extends StatelessWidget {
         // )
       ),
       body: Stack(
-        children: [BGwidget(context),
+        children: [
+          BGwidget(context),
           Column(
             children: [
               const Padding(
